@@ -1,0 +1,19 @@
+Package: GeneClassesPackage
+Title: A Package About Genes to Help Biologists
+Version: 0.1.0
+Authors@R:
+    person("Elena", "Sasso", email = "elena.sasso@mail.polimi.it", role = c("aut", "cre"))
+Description: This package provides classes and functions to help biologists
+    work with genetic data. The package includes a generic virtual gene class and
+    other specific gene classes divided into 3 main categories: protein-coding,
+    housekeeping RNA (including tRNA genes and rRNA genes), and non-coding RNA.
+License: MIT + file LICENSE
+Encoding: UTF-8
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.3.2
+Imports:
+    methods
+Suggests:
+    knitr,
+    rmarkdown, BiocStyle, devtools
+VignetteBuilder: knitr
