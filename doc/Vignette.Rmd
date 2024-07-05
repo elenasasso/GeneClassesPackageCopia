@@ -1,0 +1,183 @@
+---
+title: "Vignette"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Vignette}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+Follow this command to install the package:
+
+```{r eval=FALSE}
+options(repos = c(CRAN = "https://cran.rstudio.com/"))
+
+if (!requireNamespace("devtools", quietly = TRUE)) {
+  install.packages("devtools")
+}
+library(devtools)
+devtools::install_github("https://github.com/elenasasso/GeneClassesPackage")
+```
+
+
+```{r setup, warning=FALSE, message=FALSE}
+library(GeneClassesPackage)
+```
+
+# Description
+
+This vignette helps to understand how to use the `GeneClassesPackage`.
+
+The package contains a virtual general class called "Gene," from which all other specific classes derive. This class includes general attributes that are shared among all genes.
+
+The specific gene classes are divided into three main categories: coding genes, Housekeeping RNA genes, and non-coding RNA genes.
+
+The second and third categories are further subdivided into more specific classes:
+
+-   Housekeeping RNA genes are divided into tRNA genes and rRNA genes.
+
+-   Non-coding RNA genes are divided into long non-coding RNA genes and short non-coding RNA genes, with the latter further subdivided into miRNA, snoRNA, and snRNA.
+
+For each gene, it is possible to compute the length of the gene in base pairs and the length of the product it generates.
+
+Below are some simple examples for all the classes provided in the package and for all the functions.
+
+# Classes:
+
+## Gene
+
+The gene class is a generic virtual class for which is not possible to create object, but it contains all the attribute shared among all genes.
+
+**NB**: Remember not to try to create object of this class: the example below is wrong!
+
+```{r eval= FALSE}
+g1 <- Gene(id = 1)
+```
+
+## Coding gene
+
+This class contains protein-coding genes, inheriting all attributes from the Gene class, and includes additional attributes specific to protein-coding genes (e.g., the coordinates of the CDS).
+
+```{r}
+brca1 <- CodingGene(id = 207233, Hugo_symbol = 'BRCA1', chrom = 'chr17', CDS_end = 41197695, CDS_start = 41258496, strand = '-')
+```
+
+## Housekeeping RNA genes
+
+It's actually possible to create object of this class if you just know that the gene is an housekeeping RNA but you don't know if it's a tRNA or an rRNA, but it's more interesting to see example of the specific case.
+
+### tRNA
+
+**NB**: Be carefull to write the correct amminoacids: just the second example below is correct while the first is wrong because the "e" at the end of the name is missing.
+
+```{r eval=FALSE}
+tRNA1 <- tRNA_Gene(id = 4672829, start = 3562, end = 4567,number_exon = 8,  specific_aa = "Alanin")
+```
+
+```{r}
+tRNA1 <- tRNA_Gene(id = 4672829, start = 3562, end = 4567,number_exon = 8,  specific_aa = "Alanine")
+```
+
+### rRNA
+
+**NB**: Only eukaryotic rRNAs are included! The first example below is incorrect because 16s is an rRNA for prokaryotes.
+
+```{r eval=FALSE}
+rRNA1 <- rRNA_Gene(id = 627291, rRNA_ID = 356282,  specific_RNA = "16s")
+```
+
+```{r}
+rRNA1 <- rRNA_Gene(id = 627291, rRNA_ID = 356282,  specific_RNA = "18s")
+```
+
+## Non-coding genes
+
+It's actually possible to create object of this class if you just know that the gene is a regolative non-coding RNA but you don't know if it's a lncRNA or sncRNA, but it's more interesting to see example of the specific case.
+
+### lncRNA
+
+**NB**: The length of the RNA which must be higher than 200. The first example below is going to give an error, just the second is correct.
+
+```{r eval=FALSE}
+lncfoxp3 <- lncRNA_Gene(id = 62728, Hugo_symbol = "lncFOXP3", length_lncRNA = 120)
+```
+
+```{r}
+lncfoxp3 <- lncRNA_Gene(id = 62728, Hugo_symbol = "lncFOXP3", length_lncRNA = 1500)
+```
+
+### miRNA
+
+**NB**:
+
+-   the target of the miRNA must be a list
+-   for the miRNA the attribute for the length of the product is the general attribute `length_sncRNA`, it's the same also for `snoRNA_Gene` and `snRNA_Gene`
+
+```{r}
+miRNA1 <- miRNA_Gene(id= 508218, length_sncRNA = 48, RNA_target = list(brca1, lncfoxp3))
+```
+
+# Functions
+
+## ComputeGeneLength
+
+With this function you can compute the length of the gene in base pair from the start to the end.
+
+```{r}
+ComputeGeneLength(tRNA1)
+```
+
+## lengthProduct
+
+With this function it's possible to extract the length of the specific product of a gene also without knowing which product is:
+
+```{r}
+lengthProduct(lncfoxp3)
+```
+
+# Final recommendation (with wrong examples):
+If you will try to run the examples below you will get an error:
+
+-   Don't forget the id:
+
+```{r eval=FALSE}
+tp53 <- CodingGene(Hugo_symbol = 'tp53')
+```
+
+-   Don't make the location and the chromosome discordant:
+
+```{r eval=FALSE}
+MitocondrialGene <- CodingGene(id = 144261, location = 'Nucleus', chrom = 'M')
+```
+
+-   Don't make the TSS, TTS and the strand discordant:
+
+```{r eval=FALSE}
+smallnoncodingGene <- sncRNA_Gene(id = 9875, strand = '+', TSS = 1023, TTS = 763)
+```
+
+-   Don't make the TSS, TTS discordant with the strand and with CDS start and CDS end (just for `CodingeGene`):
+
+```{r eval=FALSE}
+pik3ca <- CodingGene(id = 2876, chrom = "chr3", TSS = 980, CDS_start = 900, strand = '+' , number_exon = 21)
+```
+
+-   Don't try to change the attributes `category`, `gene_product` and `type_RNA`(only for `ncRNA_Gene`):
+
+```{r eval=FALSE}
+snoRNA <- snoRNA_Gene(id = 52719, gene_product = "tRNA")
+```
+
+```{r eval=FALSE}
+HouseKeepingGene <- Housekeeping_RNA_Gene(id = 6789, category = 'Regolative')
+```
+
+```{r eval=FALSE}
+smallNuclearRna <- snRNA_Gene(id = 78641, type_RNA = 'long')
+```

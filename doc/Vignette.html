@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+
+
+<title>Vignette</title>
+
+<script>// Pandoc 2.9 adds attributes on both header and div. We remove the former (to
+// be compatible with the behavior of Pandoc < 2.8).
+document.addEventListener('DOMContentLoaded', function(e) {
+  var hs = document.querySelectorAll("div.section[class*='level'] > :first-child");
+  var i, h, a;
+  for (i = 0; i < hs.length; i++) {
+    h = hs[i];
+    if (!/^h[1-6]$/i.test(h.tagName)) continue;  // it should be a header h1-h6
+    a = h.attributes;
+    while (a.length > 0) h.removeAttribute(a[0].name);
+  }
+});
+</script>
+
+<style type="text/css">
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+span.underline{text-decoration: underline;}
+div.column{display: inline-block; vertical-align: top; width: 50%;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+</style>
+
+
+
+<style type="text/css">
+code {
+white-space: pre;
+}
+.sourceCode {
+overflow: visible;
+}
+</style>
+<style type="text/css" data-origin="pandoc">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+{ counter-reset: source-line 0; }
+pre.numberSource code > span
+{ position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+{ content: counter(source-line);
+position: relative; left: -1em; text-align: right; vertical-align: baseline;
+border: none; display: inline-block;
+-webkit-touch-callout: none; -webkit-user-select: none;
+-khtml-user-select: none; -moz-user-select: none;
+-ms-user-select: none; user-select: none;
+padding: 0 4px; width: 4em;
+color: #aaaaaa;
+}
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa; padding-left: 4px; }
+div.sourceCode
+{ }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } 
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } 
+code span.at { color: #7d9029; } 
+code span.bn { color: #40a070; } 
+code span.bu { color: #008000; } 
+code span.cf { color: #007020; font-weight: bold; } 
+code span.ch { color: #4070a0; } 
+code span.cn { color: #880000; } 
+code span.co { color: #60a0b0; font-style: italic; } 
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } 
+code span.do { color: #ba2121; font-style: italic; } 
+code span.dt { color: #902000; } 
+code span.dv { color: #40a070; } 
+code span.er { color: #ff0000; font-weight: bold; } 
+code span.ex { } 
+code span.fl { color: #40a070; } 
+code span.fu { color: #06287e; } 
+code span.im { color: #008000; font-weight: bold; } 
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } 
+code span.kw { color: #007020; font-weight: bold; } 
+code span.op { color: #666666; } 
+code span.ot { color: #007020; } 
+code span.pp { color: #bc7a00; } 
+code span.sc { color: #4070a0; } 
+code span.ss { color: #bb6688; } 
+code span.st { color: #4070a0; } 
+code span.va { color: #19177c; } 
+code span.vs { color: #4070a0; } 
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } 
+</style>
+<script>
+// apply pandoc div.sourceCode style to pre.sourceCode instead
+(function() {
+  var sheets = document.styleSheets;
+  for (var i = 0; i < sheets.length; i++) {
+    if (sheets[i].ownerNode.dataset["origin"] !== "pandoc") continue;
+    try { var rules = sheets[i].cssRules; } catch (e) { continue; }
+    var j = 0;
+    while (j < rules.length) {
+      var rule = rules[j];
+      // check if there is a div.sourceCode rule
+      if (rule.type !== rule.STYLE_RULE || rule.selectorText !== "div.sourceCode") {
+        j++;
+        continue;
+      }
+      var style = rule.style.cssText;
+      // check if color or background-color is set
+      if (rule.style.color === '' && rule.style.backgroundColor === '') {
+        j++;
+        continue;
+      }
+      // replace div.sourceCode by a pre.sourceCode rule
+      sheets[i].deleteRule(j);
+      sheets[i].insertRule('pre.sourceCode{' + style + '}', j);
+    }
+  }
+})();
+</script>
+
+
+
+
+<style type="text/css">body {
+background-color: #fff;
+margin: 1em auto;
+max-width: 700px;
+overflow: visible;
+padding-left: 2em;
+padding-right: 2em;
+font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+font-size: 14px;
+line-height: 1.35;
+}
+#TOC {
+clear: both;
+margin: 0 0 10px 10px;
+padding: 4px;
+width: 400px;
+border: 1px solid #CCCCCC;
+border-radius: 5px;
+background-color: #f6f6f6;
+font-size: 13px;
+line-height: 1.3;
+}
+#TOC .toctitle {
+font-weight: bold;
+font-size: 15px;
+margin-left: 5px;
+}
+#TOC ul {
+padding-left: 40px;
+margin-left: -1.5em;
+margin-top: 5px;
+margin-bottom: 5px;
+}
+#TOC ul ul {
+margin-left: -2em;
+}
+#TOC li {
+line-height: 16px;
+}
+table {
+margin: 1em auto;
+border-width: 1px;
+border-color: #DDDDDD;
+border-style: outset;
+border-collapse: collapse;
+}
+table th {
+border-width: 2px;
+padding: 5px;
+border-style: inset;
+}
+table td {
+border-width: 1px;
+border-style: inset;
+line-height: 18px;
+padding: 5px 5px;
+}
+table, table th, table td {
+border-left-style: none;
+border-right-style: none;
+}
+table thead, table tr.even {
+background-color: #f7f7f7;
+}
+p {
+margin: 0.5em 0;
+}
+blockquote {
+background-color: #f6f6f6;
+padding: 0.25em 0.75em;
+}
+hr {
+border-style: solid;
+border: none;
+border-top: 1px solid #777;
+margin: 28px 0;
+}
+dl {
+margin-left: 0;
+}
+dl dd {
+margin-bottom: 13px;
+margin-left: 13px;
+}
+dl dt {
+font-weight: bold;
+}
+ul {
+margin-top: 0;
+}
+ul li {
+list-style: circle outside;
+}
+ul ul {
+margin-bottom: 0;
+}
+pre, code {
+background-color: #f7f7f7;
+border-radius: 3px;
+color: #333;
+white-space: pre-wrap; 
+}
+pre {
+border-radius: 3px;
+margin: 5px 0px 10px 0px;
+padding: 10px;
+}
+pre:not([class]) {
+background-color: #f7f7f7;
+}
+code {
+font-family: Consolas, Monaco, 'Courier New', monospace;
+font-size: 85%;
+}
+p > code, li > code {
+padding: 2px 0px;
+}
+div.figure {
+text-align: center;
+}
+img {
+background-color: #FFFFFF;
+padding: 2px;
+border: 1px solid #DDDDDD;
+border-radius: 3px;
+border: 1px solid #CCCCCC;
+margin: 0 5px;
+}
+h1 {
+margin-top: 0;
+font-size: 35px;
+line-height: 40px;
+}
+h2 {
+border-bottom: 4px solid #f7f7f7;
+padding-top: 10px;
+padding-bottom: 2px;
+font-size: 145%;
+}
+h3 {
+border-bottom: 2px solid #f7f7f7;
+padding-top: 10px;
+font-size: 120%;
+}
+h4 {
+border-bottom: 1px solid #f7f7f7;
+margin-left: 8px;
+font-size: 105%;
+}
+h5, h6 {
+border-bottom: 1px solid #ccc;
+font-size: 105%;
+}
+a {
+color: #0033dd;
+text-decoration: none;
+}
+a:hover {
+color: #6666ff; }
+a:visited {
+color: #800080; }
+a:visited:hover {
+color: #BB00BB; }
+a[href^="http:"] {
+text-decoration: underline; }
+a[href^="https:"] {
+text-decoration: underline; }
+
+code > span.kw { color: #555; font-weight: bold; } 
+code > span.dt { color: #902000; } 
+code > span.dv { color: #40a070; } 
+code > span.bn { color: #d14; } 
+code > span.fl { color: #d14; } 
+code > span.ch { color: #d14; } 
+code > span.st { color: #d14; } 
+code > span.co { color: #888888; font-style: italic; } 
+code > span.ot { color: #007020; } 
+code > span.al { color: #ff0000; font-weight: bold; } 
+code > span.fu { color: #900; font-weight: bold; } 
+code > span.er { color: #a61717; background-color: #e3d2d2; } 
+</style>
+
+
+
+
+</head>
+
+<body>
+
+
+
+
+<h1 class="title toc-ignore">Vignette</h1>
+
+
+
+<p>Follow this command to install the package:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" tabindex="-1"></a><span class="fu">options</span>(<span class="at">repos =</span> <span class="fu">c</span>(<span class="at">CRAN =</span> <span class="st">&quot;https://cran.rstudio.com/&quot;</span>))</span>
+<span id="cb1-2"><a href="#cb1-2" tabindex="-1"></a></span>
+<span id="cb1-3"><a href="#cb1-3" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">!</span><span class="fu">requireNamespace</span>(<span class="st">&quot;devtools&quot;</span>, <span class="at">quietly =</span> <span class="cn">TRUE</span>)) {</span>
+<span id="cb1-4"><a href="#cb1-4" tabindex="-1"></a>  <span class="fu">install.packages</span>(<span class="st">&quot;devtools&quot;</span>)</span>
+<span id="cb1-5"><a href="#cb1-5" tabindex="-1"></a>}</span>
+<span id="cb1-6"><a href="#cb1-6" tabindex="-1"></a><span class="fu">library</span>(devtools)</span>
+<span id="cb1-7"><a href="#cb1-7" tabindex="-1"></a>devtools<span class="sc">::</span><span class="fu">install_github</span>(<span class="st">&quot;https://github.com/elenasasso/GeneClassesPackage&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" tabindex="-1"></a><span class="fu">library</span>(GeneClassesPackage)</span></code></pre></div>
+<div id="description" class="section level1">
+<h1>Description</h1>
+<p>This vignette helps to understand how to use the
+<code>GeneClassesPackage</code>.</p>
+<p>The package contains a virtual general class called “Gene,” from
+which all other specific classes derive. This class includes general
+attributes that are shared among all genes.</p>
+<p>The specific gene classes are divided into three main categories:
+coding genes, Housekeeping RNA genes, and non-coding RNA genes.</p>
+<p>The second and third categories are further subdivided into more
+specific classes:</p>
+<ul>
+<li><p>Housekeeping RNA genes are divided into tRNA genes and rRNA
+genes.</p></li>
+<li><p>Non-coding RNA genes are divided into long non-coding RNA genes
+and short non-coding RNA genes, with the latter further subdivided into
+miRNA, snoRNA, and snRNA.</p></li>
+</ul>
+<p>For each gene, it is possible to compute the length of the gene in
+base pairs and the length of the product it generates.</p>
+<p>Below are some simple examples for all the classes provided in the
+package and for all the functions.</p>
+</div>
+<div id="classes" class="section level1">
+<h1>Classes:</h1>
+<div id="gene" class="section level2">
+<h2>Gene</h2>
+<p>The gene class is a generic virtual class for which is not possible
+to create object, but it contains all the attribute shared among all
+genes.</p>
+<p><strong>NB</strong>: Remember not to try to create object of this
+class: the example below is wrong!</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" tabindex="-1"></a>g1 <span class="ot">&lt;-</span> <span class="fu">Gene</span>(<span class="at">id =</span> <span class="dv">1</span>)</span></code></pre></div>
+</div>
+<div id="coding-gene" class="section level2">
+<h2>Coding gene</h2>
+<p>This class contains protein-coding genes, inheriting all attributes
+from the Gene class, and includes additional attributes specific to
+protein-coding genes (e.g., the coordinates of the CDS).</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" tabindex="-1"></a>brca1 <span class="ot">&lt;-</span> <span class="fu">CodingGene</span>(<span class="at">id =</span> <span class="dv">207233</span>, <span class="at">Hugo_symbol =</span> <span class="st">&#39;BRCA1&#39;</span>, <span class="at">chrom =</span> <span class="st">&#39;chr17&#39;</span>, <span class="at">CDS_end =</span> <span class="dv">41197695</span>, <span class="at">CDS_start =</span> <span class="dv">41258496</span>, <span class="at">strand =</span> <span class="st">&#39;-&#39;</span>)</span></code></pre></div>
+</div>
+<div id="housekeeping-rna-genes" class="section level2">
+<h2>Housekeeping RNA genes</h2>
+<p>It’s actually possible to create object of this class if you just
+know that the gene is an housekeeping RNA but you don’t know if it’s a
+tRNA or an rRNA, but it’s more interesting to see example of the
+specific case.</p>
+<div id="trna" class="section level3">
+<h3>tRNA</h3>
+<p><strong>NB</strong>: Be carefull to write the correct amminoacids:
+just the second example below is correct while the first is wrong
+because the “e” at the end of the name is missing.</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" tabindex="-1"></a>tRNA1 <span class="ot">&lt;-</span> <span class="fu">tRNA_Gene</span>(<span class="at">id =</span> <span class="dv">4672829</span>, <span class="at">start =</span> <span class="dv">3562</span>, <span class="at">end =</span> <span class="dv">4567</span>,<span class="at">number_exon =</span> <span class="dv">8</span>,  <span class="at">specific_aa =</span> <span class="st">&quot;Alanin&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" tabindex="-1"></a>tRNA1 <span class="ot">&lt;-</span> <span class="fu">tRNA_Gene</span>(<span class="at">id =</span> <span class="dv">4672829</span>, <span class="at">start =</span> <span class="dv">3562</span>, <span class="at">end =</span> <span class="dv">4567</span>,<span class="at">number_exon =</span> <span class="dv">8</span>,  <span class="at">specific_aa =</span> <span class="st">&quot;Alanine&quot;</span>)</span></code></pre></div>
+</div>
+<div id="rrna" class="section level3">
+<h3>rRNA</h3>
+<p><strong>NB</strong>: Only eukaryotic rRNAs are included! The first
+example below is incorrect because 16s is an rRNA for prokaryotes.</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" tabindex="-1"></a>rRNA1 <span class="ot">&lt;-</span> <span class="fu">rRNA_Gene</span>(<span class="at">id =</span> <span class="dv">627291</span>, <span class="at">rRNA_ID =</span> <span class="dv">356282</span>,  <span class="at">specific_RNA =</span> <span class="st">&quot;16s&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" tabindex="-1"></a>rRNA1 <span class="ot">&lt;-</span> <span class="fu">rRNA_Gene</span>(<span class="at">id =</span> <span class="dv">627291</span>, <span class="at">rRNA_ID =</span> <span class="dv">356282</span>,  <span class="at">specific_RNA =</span> <span class="st">&quot;18s&quot;</span>)</span></code></pre></div>
+</div>
+</div>
+<div id="non-coding-genes" class="section level2">
+<h2>Non-coding genes</h2>
+<p>It’s actually possible to create object of this class if you just
+know that the gene is a regolative non-coding RNA but you don’t know if
+it’s a lncRNA or sncRNA, but it’s more interesting to see example of the
+specific case.</p>
+<div id="lncrna" class="section level3">
+<h3>lncRNA</h3>
+<p><strong>NB</strong>: The length of the RNA which must be higher than
+200. The first example below is going to give an error, just the second
+is correct.</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" tabindex="-1"></a>lncfoxp3 <span class="ot">&lt;-</span> <span class="fu">lncRNA_Gene</span>(<span class="at">id =</span> <span class="dv">62728</span>, <span class="at">Hugo_symbol =</span> <span class="st">&quot;lncFOXP3&quot;</span>, <span class="at">length_lncRNA =</span> <span class="dv">120</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" tabindex="-1"></a>lncfoxp3 <span class="ot">&lt;-</span> <span class="fu">lncRNA_Gene</span>(<span class="at">id =</span> <span class="dv">62728</span>, <span class="at">Hugo_symbol =</span> <span class="st">&quot;lncFOXP3&quot;</span>, <span class="at">length_lncRNA =</span> <span class="dv">1500</span>)</span></code></pre></div>
+</div>
+<div id="mirna" class="section level3">
+<h3>miRNA</h3>
+<p><strong>NB</strong>:</p>
+<ul>
+<li>the target of the miRNA must be a list</li>
+<li>for the miRNA the attribute for the length of the product is the
+general attribute <code>length_sncRNA</code>, it’s the same also for
+<code>snoRNA_Gene</code> and <code>snRNA_Gene</code></li>
+</ul>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" tabindex="-1"></a>miRNA1 <span class="ot">&lt;-</span> <span class="fu">miRNA_Gene</span>(<span class="at">id=</span> <span class="dv">508218</span>, <span class="at">length_sncRNA =</span> <span class="dv">48</span>, <span class="at">RNA_target =</span> <span class="fu">list</span>(brca1, lncfoxp3))</span></code></pre></div>
+</div>
+</div>
+</div>
+<div id="functions" class="section level1">
+<h1>Functions</h1>
+<div id="computegenelength" class="section level2">
+<h2>ComputeGeneLength</h2>
+<p>With this function you can compute the length of the gene in base
+pair from the start to the end.</p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" tabindex="-1"></a><span class="fu">ComputeGeneLength</span>(tRNA1)</span>
+<span id="cb12-2"><a href="#cb12-2" tabindex="-1"></a><span class="co">#&gt; [1] 1006</span></span></code></pre></div>
+</div>
+<div id="lengthproduct" class="section level2">
+<h2>lengthProduct</h2>
+<p>With this function it’s possible to extract the length of the
+specific product of a gene also without knowing which product is:</p>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" tabindex="-1"></a><span class="fu">lengthProduct</span>(lncfoxp3)</span>
+<span id="cb13-2"><a href="#cb13-2" tabindex="-1"></a><span class="co">#&gt; [1] 1500</span></span></code></pre></div>
+</div>
+</div>
+<div id="final-recommendation-with-wrong-examples" class="section level1">
+<h1>Final recommendation (with wrong examples):</h1>
+<p>If you will try to run the examples below you will get an error:</p>
+<ul>
+<li>Don’t forget the id:</li>
+</ul>
+<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" tabindex="-1"></a>tp53 <span class="ot">&lt;-</span> <span class="fu">CodingGene</span>(<span class="at">Hugo_symbol =</span> <span class="st">&#39;tp53&#39;</span>)</span></code></pre></div>
+<ul>
+<li>Don’t make the location and the chromosome discordant:</li>
+</ul>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" tabindex="-1"></a>MitocondrialGene <span class="ot">&lt;-</span> <span class="fu">CodingGene</span>(<span class="at">id =</span> <span class="dv">144261</span>, <span class="at">location =</span> <span class="st">&#39;Nucleus&#39;</span>, <span class="at">chrom =</span> <span class="st">&#39;M&#39;</span>)</span></code></pre></div>
+<ul>
+<li>Don’t make the TSS, TTS and the strand discordant:</li>
+</ul>
+<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" tabindex="-1"></a>smallnoncodingGene <span class="ot">&lt;-</span> <span class="fu">sncRNA_Gene</span>(<span class="at">id =</span> <span class="dv">9875</span>, <span class="at">strand =</span> <span class="st">&#39;+&#39;</span>, <span class="at">TSS =</span> <span class="dv">1023</span>, <span class="at">TTS =</span> <span class="dv">763</span>)</span></code></pre></div>
+<ul>
+<li>Don’t make the TSS, TTS discordant with the strand and with CDS
+start and CDS end (just for <code>CodingeGene</code>):</li>
+</ul>
+<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" tabindex="-1"></a>pik3ca <span class="ot">&lt;-</span> <span class="fu">CodingGene</span>(<span class="at">id =</span> <span class="dv">2876</span>, <span class="at">chrom =</span> <span class="st">&quot;chr3&quot;</span>, <span class="at">TSS =</span> <span class="dv">980</span>, <span class="at">CDS_start =</span> <span class="dv">900</span>, <span class="at">strand =</span> <span class="st">&#39;+&#39;</span> , <span class="at">number_exon =</span> <span class="dv">21</span>)</span></code></pre></div>
+<ul>
+<li>Don’t try to change the attributes <code>category</code>,
+<code>gene_product</code> and <code>type_RNA</code>(only for
+<code>ncRNA_Gene</code>):</li>
+</ul>
+<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" tabindex="-1"></a>snoRNA <span class="ot">&lt;-</span> <span class="fu">snoRNA_Gene</span>(<span class="at">id =</span> <span class="dv">52719</span>, <span class="at">gene_product =</span> <span class="st">&quot;tRNA&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" tabindex="-1"></a>HouseKeepingGene <span class="ot">&lt;-</span> <span class="fu">Housekeeping_RNA_Gene</span>(<span class="at">id =</span> <span class="dv">6789</span>, <span class="at">category =</span> <span class="st">&#39;Regolative&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" tabindex="-1"></a>smallNuclearRna <span class="ot">&lt;-</span> <span class="fu">snRNA_Gene</span>(<span class="at">id =</span> <span class="dv">78641</span>, <span class="at">type_RNA =</span> <span class="st">&#39;long&#39;</span>)</span></code></pre></div>
+</div>
+
+
+
+<!-- code folding -->
+
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>
