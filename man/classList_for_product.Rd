@@ -13,4 +13,7 @@ classList_for_product
 \description{
 This variable contains the list of all classes except the virtual one to be used in the \code{LengthProduct} function.
 }
+\examples{
+print(classList_for_product)
+}
 \keyword{datasets}

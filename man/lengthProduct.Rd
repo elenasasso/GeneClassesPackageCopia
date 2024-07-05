@@ -30,3 +30,8 @@ It then defines a method for the \code{lengthProduct} generic function that retr
 Elena Sasso \email{elena.sasso@mail.polimi.it}
 }
 
+\examples{
+Brca1 <- CodingGene(id = 1, Hugo_symbol = "BRCA1", chrom = "17", start = 41196312, end = 41277500)
+lengthProduct(Brca1)
+
+}

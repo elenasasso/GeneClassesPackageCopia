@@ -120,6 +120,10 @@ setGeneric("lengthProduct", function(classes) {
 #' @section Author:
 #' Elena Sasso \email{elena.sasso@mail.polimi.it}
 #'
+#' @examples
+#' Brca1 <- CodingGene(id = 1, Hugo_symbol = "BRCA1", chrom = "17", start = 41196312, end = 41277500)
+#' lengthProduct(Brca1)
+#'
 #' @export
 #' @import methods
 lengthProduct <- function(classes) {

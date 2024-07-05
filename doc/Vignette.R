@@ -11,10 +11,10 @@ knitr::opts_chunk$set(
 #    install.packages("devtools")
 #  }
 #  library(devtools)
-#  devtools::install_github("https://github.com/elenasasso/GeneClassesPackage")
+#  devtools::install_github("https://github.com/elenasasso/GenesClasses")
 
 ## ----setup, warning=FALSE, message=FALSE--------------------------------------
-library(GeneClassesPackage)
+library(GenesClasses)
 
 ## ----eval= FALSE--------------------------------------------------------------
 #  g1 <- Gene(id = 1)

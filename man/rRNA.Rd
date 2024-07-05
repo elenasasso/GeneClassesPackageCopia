@@ -8,7 +8,7 @@
 A character vector with 4 elements.
 }
 \usage{
-data(rRNA)
+rRNA
 }
 \description{
 This variable contains a list of possible rRNAs used for validation in the \code{rRNA_Gene} class.

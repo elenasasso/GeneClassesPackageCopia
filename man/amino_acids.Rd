@@ -8,7 +8,7 @@
 A character vector with 20 elements.
 }
 \usage{
-data(amino_acids)
+amino_acids
 }
 \description{
 This variable contains a list of amino acids used for validation in the \code{tRNA_Gene} class.

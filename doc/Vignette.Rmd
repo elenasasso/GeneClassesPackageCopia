@@ -22,17 +22,17 @@ if (!requireNamespace("devtools", quietly = TRUE)) {
   install.packages("devtools")
 }
 library(devtools)
-devtools::install_github("https://github.com/elenasasso/GeneClassesPackage")
+devtools::install_github("https://github.com/elenasasso/GenesClasses")
 ```
 
 
 ```{r setup, warning=FALSE, message=FALSE}
-library(GeneClassesPackage)
+library(GenesClasses)
 ```
 
 # Description
 
-This vignette helps to understand how to use the `GeneClassesPackage`.
+This vignette helps to understand how to use the `GenesClasses` package.
 
 The package contains a virtual general class called "Gene," from which all other specific classes derive. This class includes general attributes that are shared among all genes.
 

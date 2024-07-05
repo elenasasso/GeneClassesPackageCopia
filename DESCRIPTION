@@ -1,18 +1,16 @@
-Package: GeneClassesPackage
+Package: GenesClasses
 Title: A Package About Genes to Help Biologists
 Version: 0.1.0
 Authors@R:
     person("Elena", "Sasso", email = "elena.sasso@mail.polimi.it", role = c("aut", "cre"))
-Description: This package provides classes and functions to help biologists
-    work with genetic data. The package includes a generic virtual gene class and
-    other specific gene classes divided into 3 main categories: protein-coding,
-    housekeeping RNA (including tRNA genes and rRNA genes), and non-coding RNA.
+Description: Description: This package provides a comprehensive suite of classes and functions designed to assist biologists in managing and analyzing genetic data. Central to the package is a virtual class named "Gene", which serves as a foundational element from which all specific gene classes are derived. This core class encapsulates common attributes shared across all gene types, facilitating a unified approach to genetic data handling. The package categorizes genes into three primary classes: coding genes, housekeeping RNA genes, and non-coding RNA genes. Further subdivisions are provided where housekeeping RNA genes are split into tRNA and rRNA genes, and non-coding RNA genes are segmented into long non-coding RNA (lncRNA) and short non-coding RNA genes. The latter category includes miRNA, snoRNA, and snRNA. Each class offers functionalities to compute the gene's length in base pairs and the length of its resultant product, enabling detailed genetic analysis.
 License: MIT + file LICENSE
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.3.2
 Imports:
     methods
+biocViews: Genetics, DataRepresentation
 Suggests:
     knitr,
     rmarkdown, BiocStyle, devtools

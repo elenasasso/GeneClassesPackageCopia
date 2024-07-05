@@ -4,7 +4,7 @@
 #'
 #' @name amino_acids
 #' @docType data
-#' @usage data(amino_acids)
+#' @usage amino_acids
 #' @format A character vector with 20 elements.
 #' @examples
 #' tRNA1 <- tRNA_Gene(id = 1, specific_aa = "Alanine")
@@ -23,7 +23,7 @@ amino_acids <- c("Alanine", "Arginine", "Asparagine", "Aspartic acid", "Cysteine
 #'
 #' @name rRNA
 #' @docType data
-#' @usage data(rRNA)
+#' @usage rRNA
 #' @format A character vector with 4 elements.
 #' @examples
 #' rRNA1 <- rRNA_Gene(id = 1, specific_RNA = "18s")
