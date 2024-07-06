@@ -68,13 +68,22 @@ This class contains protein-coding genes, inheriting all attributes from the Gen
 brca1 <- CodingGene(id = 207233, Hugo_symbol = 'BRCA1', chrom = 'chr17', CDS_end = 41197695, CDS_start = 41258496, strand = '-')
 ```
 
+```{r}
+brca2 <- CodingGene(id = 563829, Hugo_symbol = 'BRCA2', chrom = 'chr13', CDS_start = 32890598, CDS_end = 32972907, strand = '+')
+```
+
 ## Housekeeping RNA genes
 
 It's actually possible to create object of this class if you just know that the gene is an housekeeping RNA but you don't know if it's a tRNA or an rRNA, but it's more interesting to see example of the specific case.
 
+```{r}
+HkGene <- Housekeeping_RNA_Gene(id = 14567, category = "Housekeeping")
+```
+
+
 ### tRNA
 
-**NB**: Be carefull to write the correct amminoacids: just the second example below is correct while the first is wrong because the "e" at the end of the name is missing.
+**NB**: Be carefull to write the correct amminoacids: the first example below is wrong because the "e" at the end of the name is missing.
 
 ```{r eval=FALSE}
 tRNA1 <- tRNA_Gene(id = 4672829, start = 3562, end = 4567,number_exon = 8,  specific_aa = "Alanin")
@@ -83,6 +92,15 @@ tRNA1 <- tRNA_Gene(id = 4672829, start = 3562, end = 4567,number_exon = 8,  spec
 ```{r}
 tRNA1 <- tRNA_Gene(id = 4672829, start = 3562, end = 4567,number_exon = 8,  specific_aa = "Alanine")
 ```
+
+```{r}
+tRNA2 <- tRNA_Gene(id = 46271, number_exon = 4,  specific_aa = "Glutamine")
+```
+
+```{r}
+tRNA3 <- tRNA_Gene(id = 10087, start = 1578, end = 2766, number_exon = 10,  specific_aa = "Tyrosine")
+```
+
 
 ### rRNA
 
@@ -96,9 +114,25 @@ rRNA1 <- rRNA_Gene(id = 627291, rRNA_ID = 356282,  specific_RNA = "16s")
 rRNA1 <- rRNA_Gene(id = 627291, rRNA_ID = 356282,  specific_RNA = "18s")
 ```
 
+```{r}
+rRNA2 <- rRNA_Gene(id = 98578, start = 282, end = 876, specific_RNA = "5.8s")
+```
+
+```{r}
+rRNA3 <- rRNA_Gene(id = 268191,  TSS = 886, TTS = 6567 ,specific_RNA = "5s")
+```
+
+```{r}
+rRNA4 <- rRNA_Gene(id = 2681, length_rRNA = 87, rRNA_ID = 350,  specific_RNA = "28s")
+```
+
 ## Non-coding genes
 
 It's actually possible to create object of this class if you just know that the gene is a regolative non-coding RNA but you don't know if it's a lncRNA or sncRNA, but it's more interesting to see example of the specific case.
+
+```{r}
+NcGene <- ncRNA_Gene(id = 545, category = "Regolative")
+```
 
 ### lncRNA
 
@@ -112,16 +146,34 @@ lncfoxp3 <- lncRNA_Gene(id = 62728, Hugo_symbol = "lncFOXP3", length_lncRNA = 12
 lncfoxp3 <- lncRNA_Gene(id = 62728, Hugo_symbol = "lncFOXP3", length_lncRNA = 1500)
 ```
 
-### miRNA
+### sncRNA
+
+```{r}
+SncGene <- sncRNA_Gene(id = 54865, category = "Regolative", length_sncRNA = 76)
+```
+
+
+#### miRNA
 
 **NB**:
 
 -   the target of the miRNA must be a list
--   for the miRNA the attribute for the length of the product is the general attribute `length_sncRNA`, it's the same also for `snoRNA_Gene` and `snRNA_Gene`
+-   for the miRNA the attribute for the length of the product is the general attribute `length_sncRNA` (this is also the same also for `snoRNA_Gene` and `snRNA_Gene`)
 
 ```{r}
 miRNA1 <- miRNA_Gene(id= 508218, length_sncRNA = 48, RNA_target = list(brca1, lncfoxp3))
 ```
+
+#### snoRNA
+
+```{r}
+U1 <- snoRNA_Gene(id= 508218, length_sncRNA = 64, gene_product = "snoRNA")
+```
+
+```{r}
+U2 <- snoRNA_Gene(id= 57282, length_sncRNA = 68, gene_product = "snoRNA")
+```
+
 
 # Functions
 
@@ -133,6 +185,10 @@ With this function you can compute the length of the gene in base pair from the 
 ComputeGeneLength(tRNA1)
 ```
 
+```{r}
+ComputeGeneLength(rRNA2)
+```
+
 ## lengthProduct
 
 With this function it's possible to extract the length of the specific product of a gene also without knowing which product is:
@@ -140,6 +196,15 @@ With this function it's possible to extract the length of the specific product o
 ```{r}
 lengthProduct(lncfoxp3)
 ```
+
+```{r}
+lengthProduct(U1)
+```
+
+```{r}
+lengthProduct(rRNA4)
+```
+
 
 # Final recommendation (with wrong examples):
 If you will try to run the examples below you will get an error:
