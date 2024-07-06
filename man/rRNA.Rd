@@ -11,7 +11,8 @@ A character vector with 4 elements.
 rRNA
 }
 \description{
-This variable contains a list of possible rRNAs used for validation in the \code{rRNA_Gene} class.
+This variable contains a list of possible rRNAs used for validation in the
+\code{rRNA_Gene} class.
 }
 \examples{
 rRNA1 <- rRNA_Gene(id = 1, specific_RNA = "18s")

@@ -13,5 +13,6 @@ ComputeGeneLength(.object)
 A numeric value representing the length of the gene.
 }
 \description{
-This function calculates the length of a gene in base pairs based on its start and end positions.
+This function calculates the length of a gene in base pairs based on its
+start and end positions.
 }

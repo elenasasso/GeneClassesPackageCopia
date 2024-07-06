@@ -11,7 +11,8 @@ A character vector with 20 elements.
 amino_acids
 }
 \description{
-This variable contains a list of amino acids used for validation in the \code{tRNA_Gene} class.
+This variable contains a list of amino acids used for validation in the
+\code{tRNA_Gene} class.
 }
 \examples{
 tRNA1 <- tRNA_Gene(id = 1, specific_aa = "Alanine")

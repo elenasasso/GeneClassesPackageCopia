@@ -15,3 +15,5 @@ Suggests:
     knitr,
     rmarkdown, BiocStyle, devtools
 VignetteBuilder: knitr
+URL: https://github.com/elenasasso/GenesClasses
+BugReports: https://github.com/elenasasso/GenesClasses/issues

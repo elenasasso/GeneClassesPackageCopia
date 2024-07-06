@@ -9,31 +9,38 @@
 A \code{tRNA_Gene} object.
 }
 \description{
-This class represents tRNA genes, which are responsible for the production of transfer RNA.
+This class represents tRNA genes, which are responsible for the production
+of transfer RNA.
 }
 \details{
 Additional details:
 The prototype are:
-specific_aa = NA_character_, tRNA_ID = NA_real_, length_tRNA = NA_real_, category = "Housekeeping", gene_product = "tRNA".
+specific_aa = NA_character_, tRNA_ID = NA_real_, length_tRNA = NA_real_,
+category = "Housekeeping", gene_product = "tRNA".
 
 the validity function checks the validity of the object by ensuring:
 \itemize{
-\item the specific amino acid is valid by ensuring it exists in the \code{amino_acids} list.
+\item the specific amino acid is valid by ensuring it exists in the
+\code{amino_acids} list.
 \item the category and the product are right.
 }
 }
 \section{Slots}{
 
 \describe{
-\item{\code{specific_aa}}{A character string representing the specific amino acid that the tRNA is going to transfer.}
+\item{\code{specific_aa}}{A character string representing the specific amino acid
+that the tRNA is going to transfer.}
 
 \item{\code{tRNA_ID}}{A numeric identifier for the tRNA produced by the gene.}
 
-\item{\code{length_tRNA}}{A numeric value representing the length of the tRNA produced by the gene.}
+\item{\code{length_tRNA}}{A numeric value representing the length of the tRNA
+produced by the gene.}
 
-\item{\code{category}}{A character string representing the category of the gene. Default is "Housekeeping" and it's not possibile to change it.}
+\item{\code{category}}{A character string representing the category of the gene.
+Default is "Housekeeping" and it's not possibile to change it.}
 
-\item{\code{gene_product}}{A character string representing the gene product. Default is "tRNA" and it's not possibile to change it.}
+\item{\code{gene_product}}{A character string representing the gene product.
+Default is "tRNA" and it's not possibile to change it.}
 }}
 
 \section{Author}{
@@ -43,7 +50,8 @@ Elena Sasso \email{elena.sasso@mail.polimi.it}
 
 \examples{
 # Create a new tRNA gene
-tRNA1 <- tRNA_Gene(id = 3, specific_aa = "Alanine", tRNA_ID = 1001, length_tRNA = 76)
+tRNA1 <- tRNA_Gene(id = 3, specific_aa = "Alanine", tRNA_ID = 1001, 
+length_tRNA = 76)
 print(tRNA1)
 
 }

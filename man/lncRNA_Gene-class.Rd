@@ -14,7 +14,8 @@ A class to represent long non-coding RNA (lncRNA) genes.
 \details{
 Additional details:
 The prototype are:
-length_lncRNA = NA_real_, lncRNA_ID = NA_real_, gene_product = "lncRNA", type_RNA = "long".
+length_lncRNA = NA_real_, lncRNA_ID = NA_real_, gene_product = "lncRNA",
+type_RNA = "long".
 
 The validity function checks the validity of the object by ensuring:
 \itemize{
@@ -29,9 +30,11 @@ The validity function checks the validity of the object by ensuring:
 
 \item{\code{lncRNA_ID}}{A numeric value representing the lncRNA ID.}
 
-\item{\code{gene_product}}{A character string representing the product of the gene. Default is "lncRNA" and it's not possibile to change it.}
+\item{\code{gene_product}}{A character string representing the product of the gene.
+Default is "lncRNA" and it's not possibile to change it.}
 
-\item{\code{type_RNA}}{A character string representing the type of RNA. Default is "long" and it's not possible to change it.}
+\item{\code{type_RNA}}{A character string representing the type of RNA. Default is
+"long" and it's not possible to change it.}
 }}
 
 \section{Author}{
@@ -41,7 +44,8 @@ Elena Sasso \email{elena.sasso@mail.polimi.it}
 
 \examples{
 # Create a lncRNA_Gene object
-lncRNA_gene <- lncRNA_Gene(id = 6, Hugo_symbol = "lncFOXP3", length_lncRNA = 300, lncRNA_ID = 1)
+lncRNA_gene <- lncRNA_Gene(id = 6, Hugo_symbol = "lncFOXP3", 
+length_lncRNA = 300, lncRNA_ID = 1)
 
 }
 \seealso{

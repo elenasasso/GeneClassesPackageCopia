@@ -23,7 +23,8 @@ The validity function ensures the gene product is 'snRNA'.
 \describe{
 \item{\code{snRNA_ID}}{A numeric value representing the snRNA ID.}
 
-\item{\code{gene_product}}{A character string representing the product of the gene. Default is "snRNA" and it's not possibile to change it.}
+\item{\code{gene_product}}{A character string representing the product of the gene.
+Default is "snRNA" and it's not possibile to change it.}
 }}
 
 \section{Author}{

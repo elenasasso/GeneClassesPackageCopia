@@ -13,9 +13,11 @@
 A numeric value representing the length of the gene.
 }
 \description{
-This method calculates the length of a gene in base pairs for objects of class \code{Gene}.
+This method calculates the length of a gene in base pairs for objects of
+class \code{Gene}.
 }
 \examples{
-Brca1 <- CodingGene(id = 1, Hugo_symbol = "BRCA1", chrom = "17", start = 41196312, end = 41277500)
+Brca1 <- CodingGene(id = 1, Hugo_symbol = "BRCA1", chrom = "17", 
+start = 41196312, end = 41277500)
 ComputeGeneLength(Brca1)
 }

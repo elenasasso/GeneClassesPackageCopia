@@ -23,7 +23,8 @@ The validity function ensures the gene product is 'snoRNA'.
 \describe{
 \item{\code{snoRNA_ID}}{A numeric value representing the snoRNA ID.}
 
-\item{\code{gene_product}}{A character string representing the product of the gene. Default is "snoRNA" and it's not possibile to change it.}
+\item{\code{gene_product}}{A character string representing the product of the gene.
+Default is "snoRNA" and it's not possibile to change it.}
 }}
 
 \section{Author}{

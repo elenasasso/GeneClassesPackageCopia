@@ -11,7 +11,8 @@ A character list with 10 elements.
 classList
 }
 \description{
-This variable contains the list of all classes to be used in the \code{createAccessors} function.
+This variable contains the list of all classes to be used in the
+\code{createAccessors} function.
 }
 \examples{
 print(classList)

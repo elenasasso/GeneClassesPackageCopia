@@ -70,3 +70,7 @@ lengthProduct(lncfoxp3)
 ## ----eval=FALSE---------------------------------------------------------------
 #  smallNuclearRna <- snRNA_Gene(id = 78641, type_RNA = 'long')
 
+## ----sessionInfo--------------------------------------------------------------
+sessionInfo()
+
+

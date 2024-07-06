@@ -25,7 +25,8 @@ The validity function ensures the gene product is 'miRNA'.
 
 \item{\code{RNA_target}}{A list of miRNA targets.}
 
-\item{\code{gene_product}}{A character string representing the product of the gene. Default is "miRNA" and it's not possibile to change it.}
+\item{\code{gene_product}}{A character string representing the product of the gene.
+Default is "miRNA" and it's not possibile to change it.}
 }}
 
 \section{Author}{
@@ -35,7 +36,8 @@ Elena Sasso \email{elena.sasso@mail.polimi.it}
 
 \examples{
 # Create a miRNA_Gene object
-miRNA_gene <- miRNA_Gene(id = 8, miRNA_ID = 1, RNA_target = list("target1", "target2"))
+miRNA_gene <- miRNA_Gene(id = 8, miRNA_ID = 1, RNA_target = list("target1",
+"target2"))
 
 }
 \seealso{

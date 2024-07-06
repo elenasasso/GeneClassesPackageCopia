@@ -181,3 +181,9 @@ HouseKeepingGene <- Housekeeping_RNA_Gene(id = 6789, category = 'Regolative')
 ```{r eval=FALSE}
 smallNuclearRna <- snRNA_Gene(id = 78641, type_RNA = 'long')
 ```
+
+```{r sessionInfo}
+sessionInfo()
+
+```
+

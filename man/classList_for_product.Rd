@@ -11,7 +11,8 @@ A character list with 10 elements.
 classList_for_product
 }
 \description{
-This variable contains the list of all classes except the virtual one to be used in the \code{LengthProduct} function.
+This variable contains the list of all classes except the virtual one to be
+used in the \code{LengthProduct} function.
 }
 \examples{
 print(classList_for_product)

@@ -29,7 +29,8 @@ The validity function checks the validity of the object by ensuring:
 
 \item{\code{sncRNA_ID}}{A numeric value representing the sncRNA ID.}
 
-\item{\code{type_RNA}}{A character string representing the type of RNA. Default is "short" and it's not possible to change it.}
+\item{\code{type_RNA}}{A character string representing the type of RNA.
+Default is "short" and it's not possible to change it.}
 }}
 
 \section{Author}{

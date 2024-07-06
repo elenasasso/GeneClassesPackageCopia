@@ -15,12 +15,14 @@ A class to represent non-coding RNA (ncRNA) genes.
 Additional details:
 The prototype for category is "Regolative".
 
-The validity function checks the validity of the object by ensuring that the category is right.
+The validity function checks the validity of the object by ensuring that
+the category is right.
 }
 \section{Slots}{
 
 \describe{
-\item{\code{category}}{A character string representing the category of the gene. Default is "Regolative" and it's not possibile to change it.}
+\item{\code{category}}{A character string representing the category of the gene.
+Default is "Regolative" and it's not possibile to change it.}
 }}
 
 \section{Author}{

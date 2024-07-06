@@ -1,6 +1,7 @@
 #' Compute Gene Length
 #'
-#' This function calculates the length of a gene in base pairs based on its start and end positions.
+#' This function calculates the length of a gene in base pairs based on its 
+#' start and end positions.
 #'
 #' @param .object An object of class \code{Gene}.
 #'
@@ -14,14 +15,16 @@ setGeneric("ComputeGeneLength", function(.object) {
 
 #' ComputeGeneLength method for Gene class
 #'
-#' This method calculates the length of a gene in base pairs for objects of class \code{Gene}.
+#' This method calculates the length of a gene in base pairs for objects of 
+#' class \code{Gene}.
 #'
 #' @param .object An object of class \code{Gene}.
 #'
 #' @return A numeric value representing the length of the gene.
 #'
 #' @examples
-#' Brca1 <- CodingGene(id = 1, Hugo_symbol = "BRCA1", chrom = "17", start = 41196312, end = 41277500)
+#' Brca1 <- CodingGene(id = 1, Hugo_symbol = "BRCA1", chrom = "17", 
+#' start = 41196312, end = 41277500)
 #' ComputeGeneLength(Brca1)
 #' @export
 #' @import methods
@@ -36,15 +39,20 @@ setMethod(f = "ComputeGeneLength",
 
 #' Create getter and setter
 #'
-#' This function creates getter and setter methods for all attributes (slots) of the classes.
+#' This function creates getter and setter methods for all attributes (slots) 
+#' of the classes.
 #'
-#' @param classes A list of class names for which the accessors should be created.
+#' @param classes A list of class names for which the accessors should be 
+#' created.
 #'
-#' @details The function iterates over each class and its attributes (slots) to create getter and setter for each slot of each class. 
-#' For attributes `gene_product`, `category` and `type_RNA` the setter method will throw an error if modification is attempted. 
+#' @details The function iterates over each class and its attributes (slots) 
+#' to create getter and setter for each slot of each class. 
+#' For attributes `gene_product`, `category` and `type_RNA` the setter method 
+#' will throw an error if modification is attempted. 
 #' The validity of the object is also checked.
 #'
-#' @return This function does not return a value. It creates getter and setter methods in the environment.
+#' @return This function does not return a value. It creates getter and setter
+#' methods in the environment.
 #'
 #' @section Author:
 #' Elena Sasso \email{elena.sasso@mail.polimi.it}
@@ -61,7 +69,8 @@ createAccessors <- function(classes) {
     
     lapply(new_attributes, function(attr) {
       setGeneric(attr, function(x) standardGeneric(attr))
-      setGeneric(paste0(attr, "<-"), function(x, value) standardGeneric(paste0(attr, "<-")))
+      setGeneric(paste0(attr, "<-"), function(x, value)
+        standardGeneric(paste0(attr, "<-")))
       
       setMethod(attr, class, function(x) slot(x, attr))
       
@@ -71,7 +80,8 @@ createAccessors <- function(classes) {
           
           valid <- validObject(x, test = TRUE)
           if (is.character(valid)) {
-            stop(paste("Invalid value for slot", attr, ": ", value, ". ", validObject(x, test = FALSE)))
+            stop(paste("Invalid value for slot", attr, ": ", value, ". ", 
+                       validObject(x, test = FALSE)))
           }
           x
         })
@@ -92,7 +102,8 @@ createAccessors(classList)
 #'
 #' A generic function to calculate the length of the product of a gene.
 #'
-#' @param classes classes that contains a length attribute for the gene product.
+#' @param classes classes that contains a length attribute for the gene 
+#' product.
 #'
 #' @return The length of the gene product.
 #'
@@ -106,14 +117,19 @@ setGeneric("lengthProduct", function(classes) {
 
 #' Create lengthProduct Methods for each class
 #'
-#' This function creates specific methods for the \code{lengthProduct} generic function for all classes.
+#' This function creates specific methods for the \code{lengthProduct} generic 
+#' function for all classes.
 #'
-#' @param classes A list of class names for which the length product methods should be created.
+#' @param classes A list of class names for which the length product methods 
+#' should be created.
 #'
-#' @details The function iterates over each class and its attributes (slots) to find an attribute that contains "length" in its name. 
-#' It then defines a method for the \code{lengthProduct} generic function that retrieves the value of this attribute.
+#' @details The function iterates over each class and its attributes (slots) 
+#' to find an attribute that contains "length" in its name. 
+#' It then defines a method for the \code{lengthProduct} generic function that 
+#' retrieves the value of this attribute.
 #'
-#' @return This function does not return a value. It creates methods for the \code{lengthProduct} generic function.
+#' @return This function does not return a value. It creates methods for the 
+#' \code{lengthProduct} generic function.
 #'
 #' @usage lengthProduct(classes)
 #'
@@ -121,7 +137,8 @@ setGeneric("lengthProduct", function(classes) {
 #' Elena Sasso \email{elena.sasso@mail.polimi.it}
 #'
 #' @examples
-#' Brca1 <- CodingGene(id = 1, Hugo_symbol = "BRCA1", chrom = "17", start = 41196312, end = 41277500)
+#' Brca1 <- CodingGene(id = 1, Hugo_symbol = "BRCA1", chrom = "17", 
+#' start = 41196312, end = 41277500)
 #' lengthProduct(Brca1)
 #'
 #' @export

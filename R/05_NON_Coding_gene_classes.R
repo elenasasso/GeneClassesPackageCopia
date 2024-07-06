@@ -2,13 +2,15 @@
 #'
 #' A class to represent non-coding RNA (ncRNA) genes.
 #'
-#' @slot category A character string representing the category of the gene. Default is "Regolative" and it's not possibile to change it.
+#' @slot category A character string representing the category of the gene. 
+#' Default is "Regolative" and it's not possibile to change it.
 #'
 #' @details
 #' Additional details:
 #' The prototype for category is "Regolative".
 #' 
-#' The validity function checks the validity of the object by ensuring that the category is right.
+#' The validity function checks the validity of the object by ensuring that 
+#' the category is right.
 #'
 #' @return A \code{ncRNA_Gene} object.
 #' 
@@ -26,8 +28,10 @@ ncRNA_Gene <- setClass("ncRNA_Gene", prototype = list(category = "Regolative"),
                        
                        validity = function(object) {
                        
-                       if (!is.na(object@category) && object@category != "Regolative") {
-                         return("The ncRNAs are considered to be regolative genes")
+                       if (!is.na(object@category) 
+                           && object@category != "Regolative") {
+                         return("The ncRNAs are considered to be regolative 
+                                genes")
                        }
                       }
                        
@@ -43,13 +47,16 @@ ncRNA_Gene <- setClass("ncRNA_Gene", prototype = list(category = "Regolative"),
 #'
 #' @slot length_lncRNA A numeric value indicating the length of the lncRNA.
 #' @slot lncRNA_ID A numeric value representing the lncRNA ID.
-#' @slot gene_product A character string representing the product of the gene. Default is "lncRNA" and it's not possibile to change it.
-#'@slot type_RNA A character string representing the type of RNA. Default is "long" and it's not possible to change it.
+#' @slot gene_product A character string representing the product of the gene.
+#' Default is "lncRNA" and it's not possibile to change it.
+#'@slot type_RNA A character string representing the type of RNA. Default is 
+#' "long" and it's not possible to change it.
 #'
 #' @details
 #' Additional details:
 #' The prototype are:
-#' length_lncRNA = NA_real_, lncRNA_ID = NA_real_, gene_product = "lncRNA", type_RNA = "long".
+#' length_lncRNA = NA_real_, lncRNA_ID = NA_real_, gene_product = "lncRNA", 
+#' type_RNA = "long".
 #'
 #' The validity function checks the validity of the object by ensuring:
 #' \itemize{
@@ -61,7 +68,8 @@ ncRNA_Gene <- setClass("ncRNA_Gene", prototype = list(category = "Regolative"),
 #' 
 #' @examples
 #' # Create a lncRNA_Gene object
-#' lncRNA_gene <- lncRNA_Gene(id = 6, Hugo_symbol = "lncFOXP3", length_lncRNA = 300, lncRNA_ID = 1)
+#' lncRNA_gene <- lncRNA_Gene(id = 6, Hugo_symbol = "lncFOXP3", 
+#' length_lncRNA = 300, lncRNA_ID = 1)
 #'
 #' @section Author:
 #' Elena Sasso \email{elena.sasso@mail.polimi.it}
@@ -70,21 +78,29 @@ ncRNA_Gene <- setClass("ncRNA_Gene", prototype = list(category = "Regolative"),
 #'
 #' @export
 lncRNA_Gene <- setClass("lncRNA_Gene", slots=list(length_lncRNA = "numeric", 
-                                                  lncRNA_ID = "numeric", type_RNA = "character"), 
-                        prototype = list(length_lncRNA = NA_real_, lncRNA_ID = NA_real_,
-                                         gene_product = "lncRNA", type_RNA = "long"), 
+                                                  lncRNA_ID = "numeric", 
+                                                  type_RNA = "character"), 
+                        prototype = list(length_lncRNA = NA_real_, 
+                                         lncRNA_ID = NA_real_,
+                                         gene_product = "lncRNA", 
+                                         type_RNA = "long"), 
                         
                         validity = function(object) {
                           
-                          if (!is.na(object@length_lncRNA) && object@length_lncRNA < 200) {
-                            return("The length of a lncRNA must be at least 200, otherwise it's a short non coding RNA")
+                          if (!is.na(object@length_lncRNA) 
+                              && object@length_lncRNA < 200) {
+                            return("The length of a lncRNA must be at least 
+                            200, otherwise it's a short non coding RNA")
                           }
                           
-                          if (!is.na(object@gene_product) && object@gene_product != 'lncRNA') {
-                            return("The product of a lncRNA gene must be a lncRNA")
+                          if (!is.na(object@gene_product) 
+                              && object@gene_product != 'lncRNA') {
+                            return("The product of a lncRNA gene must be a 
+                                   lncRNA")
                           }
                           
-                          if (!is.na(object@type_RNA) && object@type_RNA != 'long') {
+                          if (!is.na(object@type_RNA) 
+                              && object@type_RNA != 'long') {
                             return("A lncRNA is long")
                           }
                           
@@ -102,7 +118,8 @@ lncRNA_Gene <- setClass("lncRNA_Gene", slots=list(length_lncRNA = "numeric",
 #'
 #' @slot length_sncRNA A numeric value indicating the length of the sncRNA.
 #' @slot sncRNA_ID A numeric value representing the sncRNA ID.
-#' @slot type_RNA A character string representing the type of RNA. Default is "short" and it's not possible to change it.
+#' @slot type_RNA A character string representing the type of RNA. 
+#' Default is "short" and it's not possible to change it.
 #'
 #' @details
 #' Additional details:
@@ -127,18 +144,23 @@ lncRNA_Gene <- setClass("lncRNA_Gene", slots=list(length_lncRNA = "numeric",
 #'
 #' @export
 sncRNA_Gene <- setClass("sncRNA_Gene", slots=list(length_sncRNA = "numeric", 
-                                                  sncRNA_ID = "numeric", type_RNA = "character"),
+                                                  sncRNA_ID = "numeric", 
+                                                  type_RNA = "character"),
                         
-                        prototype = list(length_sncRNA = NA_real_, sncRNA_ID = NA_real_,
+                        prototype = list(length_sncRNA = NA_real_, 
+                                         sncRNA_ID = NA_real_,
                                          type_RNA = "short"), 
                         
                         validity = function(object) {
                           
-                          if (!is.na(object@length_sncRNA) && object@length_sncRNA >= 200) {
-                            return("The length of a sncRNA must be at most 200, otherwise it's a long non coding RNA")
+                          if (!is.na(object@length_sncRNA) 
+                              && object@length_sncRNA >= 200) {
+                            return("The length of a sncRNA must be at most 200,
+                                   otherwise it's a long non coding RNA")
                           }
                           
-                          if (!is.na(object@type_RNA) && object@type_RNA != 'short') {
+                          if (!is.na(object@type_RNA) 
+                              && object@type_RNA != 'short') {
                             return("A sncRNA is short")
                           }
                           
@@ -156,7 +178,8 @@ sncRNA_Gene <- setClass("sncRNA_Gene", slots=list(length_sncRNA = "numeric",
 #'
 #' @slot miRNA_ID A numeric value representing the miRNA ID.
 #' @slot RNA_target A list of miRNA targets.
-#' @slot gene_product A character string representing the product of the gene. Default is "miRNA" and it's not possibile to change it.
+#' @slot gene_product A character string representing the product of the gene. 
+#' Default is "miRNA" and it's not possibile to change it.
 #'
 #' @details
 #' Additional details:
@@ -168,7 +191,8 @@ sncRNA_Gene <- setClass("sncRNA_Gene", slots=list(length_sncRNA = "numeric",
 #' @return A \code{miRNA_Gene} object.
 #' @examples
 #' # Create a miRNA_Gene object
-#' miRNA_gene <- miRNA_Gene(id = 8, miRNA_ID = 1, RNA_target = list("target1", "target2"))
+#' miRNA_gene <- miRNA_Gene(id = 8, miRNA_ID = 1, RNA_target = list("target1",
+#' "target2"))
 #'
 #' @section Author:
 #' Elena Sasso \email{elena.sasso@mail.polimi.it}
@@ -176,13 +200,16 @@ sncRNA_Gene <- setClass("sncRNA_Gene", slots=list(length_sncRNA = "numeric",
 #' @seealso \code{\link{sncRNA_Gene}}
 #'
 #' @export
-miRNA_Gene <- setClass("miRNA_Gene", slots=list(miRNA_ID = "numeric", RNA_target = "list"), 
-                       prototype = list(miRNA_ID = NA_real_, RNA_target = list(),
+miRNA_Gene <- setClass("miRNA_Gene", slots=list(miRNA_ID = "numeric", 
+                                                RNA_target = "list"), 
+                       prototype = list(miRNA_ID = NA_real_, 
+                                        RNA_target = list(),
                                         gene_product = "miRNA"),
                        
                        validity = function(object) {
                          
-                       if (!is.na(object@gene_product) && object@gene_product != 'miRNA') {
+                       if (!is.na(object@gene_product) 
+                           && object@gene_product != 'miRNA') {
                          return("The product of a miRNA gene must be a miRNA")
                        }
                       } 
@@ -197,7 +224,8 @@ miRNA_Gene <- setClass("miRNA_Gene", slots=list(miRNA_ID = "numeric", RNA_target
 #' A class to represent small nucleolar RNA (snoRNA) genes.
 #'
 #' @slot snoRNA_ID A numeric value representing the snoRNA ID.
-#' @slot gene_product A character string representing the product of the gene. Default is "snoRNA" and it's not possibile to change it.
+#' @slot gene_product A character string representing the product of the gene.
+#' Default is "snoRNA" and it's not possibile to change it.
 #'
 #' @details
 #' Additional details:
@@ -219,12 +247,15 @@ miRNA_Gene <- setClass("miRNA_Gene", slots=list(miRNA_ID = "numeric", RNA_target
 #'
 #' @export
 snoRNA_Gene <- setClass("snoRNA_Gene", slots=list(snoRNA_ID = "numeric"), 
-                        prototype = list(snoRNA_ID = NA_real_, gene_product = "snoRNA"),
+                        prototype = list(snoRNA_ID = NA_real_, 
+                                         gene_product = "snoRNA"),
                         
                         validity = function(object) {
                           
-                          if (!is.na(object@gene_product) && object@gene_product != 'snoRNA') {
-                            return("The product of a snoRNA gene must be a snoRNA")
+                          if (!is.na(object@gene_product) 
+                              && object@gene_product != 'snoRNA') {
+                            return("The product of a snoRNA gene must be a 
+                                   snoRNA")
                           }
                         } 
                         ,contains = "sncRNA_Gene"
@@ -238,7 +269,8 @@ snoRNA_Gene <- setClass("snoRNA_Gene", slots=list(snoRNA_ID = "numeric"),
 #' A class to represent small nuclear RNA (snRNA) genes.
 #'
 #' @slot snRNA_ID A numeric value representing the snRNA ID.
-#' @slot gene_product A character string representing the product of the gene. Default is "snRNA" and it's not possibile to change it.
+#' @slot gene_product A character string representing the product of the gene. 
+#' Default is "snRNA" and it's not possibile to change it.
 #'
 #' @details
 #' Additional details:
@@ -260,12 +292,15 @@ snoRNA_Gene <- setClass("snoRNA_Gene", slots=list(snoRNA_ID = "numeric"),
 #'
 #' @export
 snRNA_Gene <- setClass("snRNA_Gene", slots=list(snRNA_ID = "numeric"), 
-                       prototype = list(snRNA_ID = NA_real_, gene_product = "snRNA"),
+                       prototype = list(snRNA_ID = NA_real_, 
+                                        gene_product = "snRNA"),
                        
                        validity = function(object) {
                          
-                         if (!is.na(object@gene_product) && object@gene_product != 'snRNA') {
-                           return("The product of a snRNA gene must be a snRNA")
+                         if (!is.na(object@gene_product) 
+                             && object@gene_product != 'snRNA') {
+                           return("The product of a snRNA gene must be a 
+                                  snRNA")
                          }
                        } 
                        

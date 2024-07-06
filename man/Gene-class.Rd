@@ -15,8 +15,9 @@ A virtual class to represent a generic gene.
 Additional details:
 The protoype are:
 id = NA_real_, Hugo_symbol = NA_character_, description = NA_character_,
-chrom = NA_character_, start = NA_real_, end = NA_real_, number_exon = NA_real_,
-location = NA_character_, category = NA_character_, gene_product = NA_character_, strand = NA_character_.
+chrom = NA_character_, start = NA_real_, end = NA_real_,
+number_exon = NA_real_, location = NA_character_, category = NA_character_,
+gene_product = NA_character_, strand = NA_character_.
 
 The validity function checks the validity of the gene object, ensuring that:
 \itemize{
@@ -31,27 +32,35 @@ The validity function checks the validity of the gene object, ensuring that:
 \describe{
 \item{\code{id}}{A numeric value representing the gene ID.}
 
-\item{\code{Hugo_symbol}}{A character string representing the Hugo symbol of the gene.}
+\item{\code{Hugo_symbol}}{A character string representing the Hugo symbol of the
+gene.}
 
 \item{\code{description}}{A character string describing the gene.}
 
-\item{\code{chrom}}{A character string representing the chromosome where the gene is located.}
+\item{\code{chrom}}{A character string representing the chromosome where the gene
+is located.}
 
-\item{\code{start}}{A numeric value indicating the start position of the gene on the chromosome.}
+\item{\code{start}}{A numeric value indicating the start position of the gene on the
+chromosome.}
 
-\item{\code{end}}{A numeric value indicating the end position of the gene on the chromosome.}
+\item{\code{end}}{A numeric value indicating the end position of the gene on the
+chromosome.}
 
-\item{\code{strand}}{A character string indicating the strand of the gene ('+' or '-').}
+\item{\code{strand}}{A character string indicating the strand of the gene ('+' or
+'-').}
 
 \item{\code{TSS}}{A numeric value representing the transcription start site.}
 
 \item{\code{TTS}}{A numeric value representing the transcription termination site.}
 
-\item{\code{number_exon}}{A numeric value indicating the number of exons in the gene.}
+\item{\code{number_exon}}{A numeric value indicating the number of exons in the
+gene.}
 
-\item{\code{location}}{A character string indicating the location of the gene ('Nucleus', 'Mitochondrion', 'Chloroplast').}
+\item{\code{location}}{A character string indicating the location of the gene
+('Nucleus', 'Mitochondrion', 'Chloroplast').}
 
-\item{\code{category}}{A character string indicating the category of the gene ('Protein-coding', 'Housekeeping', 'Regolative').}
+\item{\code{category}}{A character string indicating the category of the gene
+('Protein-coding', 'Housekeeping', 'Regolative').}
 
 \item{\code{gene_product}}{A character string representing the product of the gene.}
 }}

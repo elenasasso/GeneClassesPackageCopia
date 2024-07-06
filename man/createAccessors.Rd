@@ -7,17 +7,22 @@
 createAccessors(classes)
 }
 \arguments{
-\item{classes}{A list of class names for which the accessors should be created.}
+\item{classes}{A list of class names for which the accessors should be
+created.}
 }
 \value{
-This function does not return a value. It creates getter and setter methods in the environment.
+This function does not return a value. It creates getter and setter
+methods in the environment.
 }
 \description{
-This function creates getter and setter methods for all attributes (slots) of the classes.
+This function creates getter and setter methods for all attributes (slots)
+of the classes.
 }
 \details{
-The function iterates over each class and its attributes (slots) to create getter and setter for each slot of each class.
-For attributes \code{gene_product}, \code{category} and \code{type_RNA} the setter method will throw an error if modification is attempted.
+The function iterates over each class and its attributes (slots)
+to create getter and setter for each slot of each class.
+For attributes \code{gene_product}, \code{category} and \code{type_RNA} the setter method
+will throw an error if modification is attempted.
 The validity of the object is also checked.
 }
 \section{Author}{

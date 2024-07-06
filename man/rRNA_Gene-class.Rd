@@ -9,31 +9,38 @@
 A \code{rRNA_Gene} object.
 }
 \description{
-This class represents rRNA genes, which are responsible for the production of ribosomal RNA.
+This class represents rRNA genes, which are responsible for the production
+of ribosomal RNA.
 }
 \details{
 Additional details:
 The prototype are:
-specific_RNA = NA_character_, rRNA_ID = NA_real_, length_rRNA = NA_real_, category = "Housekeeping", gene_product = "rRNA".
+specific_RNA = NA_character_, rRNA_ID = NA_real_, length_rRNA = NA_real_,
+category = "Housekeeping", gene_product = "rRNA".
 
 The validity function checks the validity of the object by ensuring:
 \itemize{
-\item the specific rRNA is valid by ensuring it exists in the \code{rRNA} list.
+\item the specific rRNA is valid by ensuring it exists in the \code{rRNA}
+list.
 \item the category and the product are right.
 }
 }
 \section{Slots}{
 
 \describe{
-\item{\code{specific_RNA}}{A character string representing the specific rRNA type. Only eukaryotic types are possible.}
+\item{\code{specific_RNA}}{A character string representing the specific rRNA type.
+Only eukaryotic types are possible.}
 
 \item{\code{rRNA_ID}}{A numeric identifier for the rRNA produced by the gene.}
 
-\item{\code{length_rRNA}}{A numeric value representing the length of the rRNA produced by the gene.}
+\item{\code{length_rRNA}}{A numeric value representing the length of the rRNA
+produced by the gene.}
 
-\item{\code{category}}{A character string representing the category of the gene. Default is "Housekeeping" and it's not possibile to change it.}
+\item{\code{category}}{A character string representing the category of the gene.
+Default is "Housekeeping" and it's not possibile to change it.}
 
-\item{\code{gene_product}}{A character string representing the gene product. Default is "rRNA" and it's not possibile to change it.}
+\item{\code{gene_product}}{A character string representing the gene product.
+Default is "rRNA" and it's not possibile to change it.}
 }}
 
 \section{Author}{
@@ -43,7 +50,8 @@ Elena Sasso \email{elena.sasso@mail.polimi.it}
 
 \examples{
 # Create a new rRNA gene
-rRNA1 <- rRNA_Gene(id = 4, specific_RNA = "18s", rRNA_ID = 2001, length_rRNA = 1869)
+rRNA1 <- rRNA_Gene(id = 4, specific_RNA = "18s", rRNA_ID = 2001, 
+length_rRNA = 1869)
 print(rRNA1)
 
 }
