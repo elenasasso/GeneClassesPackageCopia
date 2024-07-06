@@ -71,10 +71,13 @@ SncGene <- sncRNA_Gene(id = 54865, category = "Regolative", length_sncRNA = 76)
 miRNA1 <- miRNA_Gene(id= 508218, length_sncRNA = 48, RNA_target = list(brca1, lncfoxp3))
 
 ## -----------------------------------------------------------------------------
-U1 <- snoRNA_Gene(id= 508218, length_sncRNA = 64, gene_product = "snoRNA")
+SNORD116 <- snoRNA_Gene(id = 8265, description = 'small nucleolar RNA that plays a crucial role in the development of Prader-Willi Syndrome')
 
 ## -----------------------------------------------------------------------------
-U2 <- snoRNA_Gene(id= 57282, length_sncRNA = 68, gene_product = "snoRNA")
+U1 <- snRNA_Gene(id= 508218, length_sncRNA = 64, gene_product = "snRNA")
+
+## -----------------------------------------------------------------------------
+U2 <- snRNA_Gene(id= 57282, length_sncRNA = 68, gene_product = "snRNA")
 
 ## -----------------------------------------------------------------------------
 ComputeGeneLength(tRNA1)

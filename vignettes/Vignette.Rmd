@@ -167,11 +167,18 @@ miRNA1 <- miRNA_Gene(id= 508218, length_sncRNA = 48, RNA_target = list(brca1, ln
 #### snoRNA
 
 ```{r}
-U1 <- snoRNA_Gene(id= 508218, length_sncRNA = 64, gene_product = "snoRNA")
+SNORD116 <- snoRNA_Gene(id = 8265, description = 'small nucleolar RNA that plays a crucial role in the development of Prader-Willi Syndrome')
+```
+
+
+#### snRNA
+
+```{r}
+U1 <- snRNA_Gene(id= 508218, length_sncRNA = 64, gene_product = "snRNA")
 ```
 
 ```{r}
-U2 <- snoRNA_Gene(id= 57282, length_sncRNA = 68, gene_product = "snoRNA")
+U2 <- snRNA_Gene(id= 57282, length_sncRNA = 68, gene_product = "snRNA")
 ```
 
 
