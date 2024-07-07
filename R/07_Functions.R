@@ -62,7 +62,7 @@ setMethod(f = "ComputeGeneLength",
 slots <- slotNames("Gene")
 for (i in slots) {
   setGeneric(i, function(x) standardGeneric(i))
-  setMethod(i, "Gene", function(x) x@i)
+  setMethod(i, "Gene", eval(substitute(function(x) x@SLOT, list(SLOT = as.name(i)))))
 }
 
 #' LengthProduct Generic Function
