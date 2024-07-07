@@ -5,7 +5,6 @@ knitr::opts_chunk$set(
 )
 
 ## ----eval=FALSE---------------------------------------------------------------
-#  options(repos = c(CRAN = "https://cran.rstudio.com/"))
 #  
 #  if (!requireNamespace("devtools", quietly = TRUE)) {
 #    install.packages("devtools")
@@ -93,6 +92,12 @@ lengthProduct(U1)
 
 ## -----------------------------------------------------------------------------
 lengthProduct(rRNA4)
+
+## -----------------------------------------------------------------------------
+id(brca1)
+
+## -----------------------------------------------------------------------------
+RNA_target(miRNA1)
 
 ## ----eval=FALSE---------------------------------------------------------------
 #  tp53 <- CodingGene(Hugo_symbol = 'tp53')

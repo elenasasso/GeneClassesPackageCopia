@@ -118,13 +118,13 @@ lncRNA_Gene <- setClass("lncRNA_Gene", slots=list(length_lncRNA = "numeric",
 #'
 #' @slot length_sncRNA A numeric value indicating the length of the sncRNA.
 #' @slot sncRNA_ID A numeric value representing the sncRNA ID.
-#' @slot type_RNA A character string representing the type of RNA. 
+#' @slot types_RNA A character string representing the type of RNA. 
 #' Default is "short" and it's not possible to change it.
 #'
 #' @details
 #' Additional details:
 #' The prototype are:
-#' length_sncRNA = NA_real_, sncRNA_ID = NA_real_, type_RNA = "short".
+#' length_sncRNA = NA_real_, sncRNA_ID = NA_real_, types_RNA = "short".
 #'
 #' The validity function checks the validity of the object by ensuring:
 #' \itemize{
@@ -145,11 +145,11 @@ lncRNA_Gene <- setClass("lncRNA_Gene", slots=list(length_lncRNA = "numeric",
 #' @export
 sncRNA_Gene <- setClass("sncRNA_Gene", slots=list(length_sncRNA = "numeric", 
                                                   sncRNA_ID = "numeric", 
-                                                  type_RNA = "character"),
+                                                  types_RNA = "character"),
                         
                         prototype = list(length_sncRNA = NA_real_, 
                                          sncRNA_ID = NA_real_,
-                                         type_RNA = "short"), 
+                                         types_RNA = "short"), 
                         
                         validity = function(object) {
                           
@@ -159,8 +159,8 @@ sncRNA_Gene <- setClass("sncRNA_Gene", slots=list(length_sncRNA = "numeric",
                                    otherwise it's a long non coding RNA")
                           }
                           
-                          if (!is.na(object@type_RNA) 
-                              && object@type_RNA != 'short') {
+                          if (!is.na(object@types_RNA) 
+                              && object@types_RNA != 'short') {
                             return("A sncRNA is short")
                           }
                           

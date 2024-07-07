@@ -4,6 +4,10 @@
 #' @return The value of the id attribute.
 #' @export
 setGeneric('id', function(x) standardGeneric('id'))
+#' @title Get id attribute
+#' @description Getter for id attribute of Gene class.
+#' @param x An object of class Gene.
+#' @return The value of the id attribute.
 #' @export
 setMethod('id', 'Gene', function(x) x@id)
 
@@ -14,6 +18,11 @@ setMethod('id', 'Gene', function(x) x@id)
 #' @return The modified object.
 #' @export
 setGeneric('id<-', function(x, value) standardGeneric('id<-'))
+#' @title Set id attribute
+#' @description Setter for id attribute of Gene class.
+#' @param x An object of class Gene.
+#' @param value The value to set for the id attribute.
+#' @return The modified object.
 #' @export
 setMethod('id<-', 'Gene', function(x, value) {
   x@id <- value
@@ -26,6 +35,10 @@ setMethod('id<-', 'Gene', function(x, value) {
 #' @return The value of the Hugo_symbol attribute.
 #' @export
 setGeneric('Hugo_symbol', function(x) standardGeneric('Hugo_symbol'))
+#' @title Get Hugo_symbol attribute
+#' @description Getter for Hugo_symbol attribute of Gene class.
+#' @param x An object of class Gene.
+#' @return The value of the Hugo_symbol attribute.
 #' @export
 setMethod('Hugo_symbol', 'Gene', function(x) x@Hugo_symbol)
 
@@ -36,6 +49,11 @@ setMethod('Hugo_symbol', 'Gene', function(x) x@Hugo_symbol)
 #' @return The modified object.
 #' @export
 setGeneric('Hugo_symbol<-', function(x, value) standardGeneric('Hugo_symbol<-'))
+#' @title Set Hugo_symbol attribute
+#' @description Setter for Hugo_symbol attribute of Gene class.
+#' @param x An object of class Gene.
+#' @param value The value to set for the Hugo_symbol attribute.
+#' @return The modified object.
 #' @export
 setMethod('Hugo_symbol<-', 'Gene', function(x, value) {
   x@Hugo_symbol <- value
@@ -48,6 +66,10 @@ setMethod('Hugo_symbol<-', 'Gene', function(x, value) {
 #' @return The value of the description attribute.
 #' @export
 setGeneric('description', function(x) standardGeneric('description'))
+#' @title Get description attribute
+#' @description Getter for description attribute of Gene class.
+#' @param x An object of class Gene.
+#' @return The value of the description attribute.
 #' @export
 setMethod('description', 'Gene', function(x) x@description)
 
@@ -58,6 +80,11 @@ setMethod('description', 'Gene', function(x) x@description)
 #' @return The modified object.
 #' @export
 setGeneric('description<-', function(x, value) standardGeneric('description<-'))
+#' @title Set description attribute
+#' @description Setter for description attribute of Gene class.
+#' @param x An object of class Gene.
+#' @param value The value to set for the description attribute.
+#' @return The modified object.
 #' @export
 setMethod('description<-', 'Gene', function(x, value) {
   x@description <- value
@@ -70,6 +97,10 @@ setMethod('description<-', 'Gene', function(x, value) {
 #' @return The value of the chrom attribute.
 #' @export
 setGeneric('chrom', function(x) standardGeneric('chrom'))
+#' @title Get chrom attribute
+#' @description Getter for chrom attribute of Gene class.
+#' @param x An object of class Gene.
+#' @return The value of the chrom attribute.
 #' @export
 setMethod('chrom', 'Gene', function(x) x@chrom)
 
@@ -80,6 +111,11 @@ setMethod('chrom', 'Gene', function(x) x@chrom)
 #' @return The modified object.
 #' @export
 setGeneric('chrom<-', function(x, value) standardGeneric('chrom<-'))
+#' @title Set chrom attribute
+#' @description Setter for chrom attribute of Gene class.
+#' @param x An object of class Gene.
+#' @param value The value to set for the chrom attribute.
+#' @return The modified object.
 #' @export
 setMethod('chrom<-', 'Gene', function(x, value) {
   x@chrom <- value
@@ -92,6 +128,10 @@ setMethod('chrom<-', 'Gene', function(x, value) {
 #' @return The value of the start attribute.
 #' @export
 setGeneric('start', function(x) standardGeneric('start'))
+#' @title Get start attribute
+#' @description Getter for start attribute of Gene class.
+#' @param x An object of class Gene.
+#' @return The value of the start attribute.
 #' @export
 setMethod('start', 'Gene', function(x) x@start)
 
@@ -102,6 +142,11 @@ setMethod('start', 'Gene', function(x) x@start)
 #' @return The modified object.
 #' @export
 setGeneric('start<-', function(x, value) standardGeneric('start<-'))
+#' @title Set start attribute
+#' @description Setter for start attribute of Gene class.
+#' @param x An object of class Gene.
+#' @param value The value to set for the start attribute.
+#' @return The modified object.
 #' @export
 setMethod('start<-', 'Gene', function(x, value) {
   x@start <- value
@@ -114,6 +159,10 @@ setMethod('start<-', 'Gene', function(x, value) {
 #' @return The value of the end attribute.
 #' @export
 setGeneric('end', function(x) standardGeneric('end'))
+#' @title Get end attribute
+#' @description Getter for end attribute of Gene class.
+#' @param x An object of class Gene.
+#' @return The value of the end attribute.
 #' @export
 setMethod('end', 'Gene', function(x) x@end)
 
@@ -124,6 +173,11 @@ setMethod('end', 'Gene', function(x) x@end)
 #' @return The modified object.
 #' @export
 setGeneric('end<-', function(x, value) standardGeneric('end<-'))
+#' @title Set end attribute
+#' @description Setter for end attribute of Gene class.
+#' @param x An object of class Gene.
+#' @param value The value to set for the end attribute.
+#' @return The modified object.
 #' @export
 setMethod('end<-', 'Gene', function(x, value) {
   x@end <- value
@@ -136,6 +190,10 @@ setMethod('end<-', 'Gene', function(x, value) {
 #' @return The value of the strand attribute.
 #' @export
 setGeneric('strand', function(x) standardGeneric('strand'))
+#' @title Get strand attribute
+#' @description Getter for strand attribute of Gene class.
+#' @param x An object of class Gene.
+#' @return The value of the strand attribute.
 #' @export
 setMethod('strand', 'Gene', function(x) x@strand)
 
@@ -146,6 +204,11 @@ setMethod('strand', 'Gene', function(x) x@strand)
 #' @return The modified object.
 #' @export
 setGeneric('strand<-', function(x, value) standardGeneric('strand<-'))
+#' @title Set strand attribute
+#' @description Setter for strand attribute of Gene class.
+#' @param x An object of class Gene.
+#' @param value The value to set for the strand attribute.
+#' @return The modified object.
 #' @export
 setMethod('strand<-', 'Gene', function(x, value) {
   x@strand <- value
@@ -158,6 +221,10 @@ setMethod('strand<-', 'Gene', function(x, value) {
 #' @return The value of the TSS attribute.
 #' @export
 setGeneric('TSS', function(x) standardGeneric('TSS'))
+#' @title Get TSS attribute
+#' @description Getter for TSS attribute of Gene class.
+#' @param x An object of class Gene.
+#' @return The value of the TSS attribute.
 #' @export
 setMethod('TSS', 'Gene', function(x) x@TSS)
 
@@ -168,6 +235,11 @@ setMethod('TSS', 'Gene', function(x) x@TSS)
 #' @return The modified object.
 #' @export
 setGeneric('TSS<-', function(x, value) standardGeneric('TSS<-'))
+#' @title Set TSS attribute
+#' @description Setter for TSS attribute of Gene class.
+#' @param x An object of class Gene.
+#' @param value The value to set for the TSS attribute.
+#' @return The modified object.
 #' @export
 setMethod('TSS<-', 'Gene', function(x, value) {
   x@TSS <- value
@@ -180,6 +252,10 @@ setMethod('TSS<-', 'Gene', function(x, value) {
 #' @return The value of the TTS attribute.
 #' @export
 setGeneric('TTS', function(x) standardGeneric('TTS'))
+#' @title Get TTS attribute
+#' @description Getter for TTS attribute of Gene class.
+#' @param x An object of class Gene.
+#' @return The value of the TTS attribute.
 #' @export
 setMethod('TTS', 'Gene', function(x) x@TTS)
 
@@ -190,6 +266,11 @@ setMethod('TTS', 'Gene', function(x) x@TTS)
 #' @return The modified object.
 #' @export
 setGeneric('TTS<-', function(x, value) standardGeneric('TTS<-'))
+#' @title Set TTS attribute
+#' @description Setter for TTS attribute of Gene class.
+#' @param x An object of class Gene.
+#' @param value The value to set for the TTS attribute.
+#' @return The modified object.
 #' @export
 setMethod('TTS<-', 'Gene', function(x, value) {
   x@TTS <- value
@@ -202,6 +283,10 @@ setMethod('TTS<-', 'Gene', function(x, value) {
 #' @return The value of the number_exon attribute.
 #' @export
 setGeneric('number_exon', function(x) standardGeneric('number_exon'))
+#' @title Get number_exon attribute
+#' @description Getter for number_exon attribute of Gene class.
+#' @param x An object of class Gene.
+#' @return The value of the number_exon attribute.
 #' @export
 setMethod('number_exon', 'Gene', function(x) x@number_exon)
 
@@ -212,6 +297,11 @@ setMethod('number_exon', 'Gene', function(x) x@number_exon)
 #' @return The modified object.
 #' @export
 setGeneric('number_exon<-', function(x, value) standardGeneric('number_exon<-'))
+#' @title Set number_exon attribute
+#' @description Setter for number_exon attribute of Gene class.
+#' @param x An object of class Gene.
+#' @param value The value to set for the number_exon attribute.
+#' @return The modified object.
 #' @export
 setMethod('number_exon<-', 'Gene', function(x, value) {
   x@number_exon <- value
@@ -224,6 +314,10 @@ setMethod('number_exon<-', 'Gene', function(x, value) {
 #' @return The value of the location attribute.
 #' @export
 setGeneric('location', function(x) standardGeneric('location'))
+#' @title Get location attribute
+#' @description Getter for location attribute of Gene class.
+#' @param x An object of class Gene.
+#' @return The value of the location attribute.
 #' @export
 setMethod('location', 'Gene', function(x) x@location)
 
@@ -234,6 +328,11 @@ setMethod('location', 'Gene', function(x) x@location)
 #' @return The modified object.
 #' @export
 setGeneric('location<-', function(x, value) standardGeneric('location<-'))
+#' @title Set location attribute
+#' @description Setter for location attribute of Gene class.
+#' @param x An object of class Gene.
+#' @param value The value to set for the location attribute.
+#' @return The modified object.
 #' @export
 setMethod('location<-', 'Gene', function(x, value) {
   x@location <- value
@@ -246,6 +345,10 @@ setMethod('location<-', 'Gene', function(x, value) {
 #' @return The value of the category attribute.
 #' @export
 setGeneric('category', function(x) standardGeneric('category'))
+#' @title Get category attribute
+#' @description Getter for category attribute of Gene class.
+#' @param x An object of class Gene.
+#' @return The value of the category attribute.
 #' @export
 setMethod('category', 'Gene', function(x) x@category)
 
@@ -256,10 +359,14 @@ setMethod('category', 'Gene', function(x) x@category)
 #' @return The modified object.
 #' @export
 setGeneric('category<-', function(x, value) standardGeneric('category<-'))
+#' @title Set category attribute
+#' @description Setter for category attribute of Gene class.
+#' @param x An object of class Gene.
+#' @param value The value to set for the category attribute.
+#' @return The modified object.
 #' @export
 setMethod('category<-', 'Gene', function(x, value) {
-  x@category <- value
-  x
+  stop('Cannot modify the category attribute')
 })
 
 #' @title Get gene_product attribute
@@ -268,6 +375,10 @@ setMethod('category<-', 'Gene', function(x, value) {
 #' @return The value of the gene_product attribute.
 #' @export
 setGeneric('gene_product', function(x) standardGeneric('gene_product'))
+#' @title Get gene_product attribute
+#' @description Getter for gene_product attribute of Gene class.
+#' @param x An object of class Gene.
+#' @return The value of the gene_product attribute.
 #' @export
 setMethod('gene_product', 'Gene', function(x) x@gene_product)
 
@@ -278,9 +389,13 @@ setMethod('gene_product', 'Gene', function(x) x@gene_product)
 #' @return The modified object.
 #' @export
 setGeneric('gene_product<-', function(x, value) standardGeneric('gene_product<-'))
+#' @title Set gene_product attribute
+#' @description Setter for gene_product attribute of Gene class.
+#' @param x An object of class Gene.
+#' @param value The value to set for the gene_product attribute.
+#' @return The modified object.
 #' @export
 setMethod('gene_product<-', 'Gene', function(x, value) {
-  x@gene_product <- value
-  x
+  stop('Cannot modify the gene_product attribute')
 })
 

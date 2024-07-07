@@ -46,15 +46,13 @@ setMethod(f = "ComputeGeneLength",
 #'
 #' @return The length of the gene product.
 #'
-#' @usage lengthProduct(classes)
-#'
 #' @export
 setGeneric("lengthProduct", function(classes) {
   standardGeneric("lengthProduct")
 })
 
 
-#' Create lengthProduct Methods for each class
+#' lengthProduct Methods for each class
 #'
 #' This function creates specific methods for the \code{lengthProduct} generic 
 #' function for all classes.
@@ -62,15 +60,8 @@ setGeneric("lengthProduct", function(classes) {
 #' @param classes A list of class names for which the length product methods 
 #' should be created.
 #'
-#' @details The function iterates over each class and its attributes (slots) 
-#' to find an attribute that contains "length" in its name. 
-#' It then defines a method for the \code{lengthProduct} generic function that 
-#' retrieves the value of this attribute.
-#'
 #' @return This function does not return a value. It creates methods for the 
 #' \code{lengthProduct} generic function.
-#'
-#' @usage lengthProduct(classes)
 #'
 #' @section Author:
 #' Elena Sasso \email{elena.sasso@mail.polimi.it}
@@ -82,7 +73,7 @@ setGeneric("lengthProduct", function(classes) {
 #'
 #' @export
 #' @import methods
-lengthProduct <- function(classes) {
+lengthProductMethod <- function(classes) {
   lapply(classes, function(class) {
     attributes <- slotNames(class)
     
@@ -91,11 +82,11 @@ lengthProduct <- function(classes) {
     
     
     if (length(length_attr) == 1) {
-      setMethod("lengthProduct", class, function(object) {
-        slot(object, length_attr)
+      setMethod("lengthProduct", class, function(classes) {
+        slot(classes, length_attr)
       })
     }
   })
 }
 
-lengthProduct(classList_for_product)
+lengthProductMethod(classList_for_product)

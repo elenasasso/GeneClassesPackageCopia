@@ -13,10 +13,10 @@ knitr::opts_chunk$set(
   comment = "#>"
 )
 ```
+
 Follow this command to install the package:
 
 ```{r eval=FALSE}
-options(repos = c(CRAN = "https://cran.rstudio.com/"))
 
 if (!requireNamespace("devtools", quietly = TRUE)) {
   install.packages("devtools")
@@ -24,7 +24,6 @@ if (!requireNamespace("devtools", quietly = TRUE)) {
 library(devtools)
 devtools::install_github("https://github.com/elenasasso/GenesClasses")
 ```
-
 
 ```{r setup, warning=FALSE, message=FALSE}
 library(GenesClasses)
@@ -80,7 +79,6 @@ It's actually possible to create object of this class if you just know that the 
 HkGene <- Housekeeping_RNA_Gene(id = 14567, category = "Housekeeping")
 ```
 
-
 ### tRNA
 
 **NB**: Be carefull to write the correct amminoacids: the first example below is wrong because the "e" at the end of the name is missing.
@@ -100,7 +98,6 @@ tRNA2 <- tRNA_Gene(id = 46271, number_exon = 4,  specific_aa = "Glutamine")
 ```{r}
 tRNA3 <- tRNA_Gene(id = 10087, start = 1578, end = 2766, number_exon = 10,  specific_aa = "Tyrosine")
 ```
-
 
 ### rRNA
 
@@ -152,7 +149,6 @@ lncfoxp3 <- lncRNA_Gene(id = 62728, Hugo_symbol = "lncFOXP3", length_lncRNA = 15
 SncGene <- sncRNA_Gene(id = 54865, category = "Regolative", length_sncRNA = 76)
 ```
 
-
 #### miRNA
 
 **NB**:
@@ -170,7 +166,6 @@ miRNA1 <- miRNA_Gene(id= 508218, length_sncRNA = 48, RNA_target = list(brca1, ln
 SNORD116 <- snoRNA_Gene(id = 8265, description = 'small nucleolar RNA that plays a crucial role in the development of Prader-Willi Syndrome')
 ```
 
-
 #### snRNA
 
 ```{r}
@@ -180,7 +175,6 @@ U1 <- snRNA_Gene(id= 508218, length_sncRNA = 64, gene_product = "snRNA")
 ```{r}
 U2 <- snRNA_Gene(id= 57282, length_sncRNA = 68, gene_product = "snRNA")
 ```
-
 
 # Functions
 
@@ -212,8 +206,19 @@ lengthProduct(U1)
 lengthProduct(rRNA4)
 ```
 
+# Getter and setter
+It's easily possible to access attributes of object or modify them:
+```{r}
+id(brca1)
+```
+
+```{r}
+RNA_target(miRNA1)
+```
+
 
 # Final recommendation (with wrong examples):
+
 If you will try to run the examples below you will get an error:
 
 -   Don't forget the id:
@@ -258,4 +263,3 @@ smallNuclearRna <- snRNA_Gene(id = 78641, type_RNA = 'long')
 sessionInfo()
 
 ```
-

@@ -14,7 +14,7 @@ A class to represent small non-coding RNA (sncRNA) genes.
 \details{
 Additional details:
 The prototype are:
-length_sncRNA = NA_real_, sncRNA_ID = NA_real_, type_RNA = "short".
+length_sncRNA = NA_real_, sncRNA_ID = NA_real_, types_RNA = "short".
 
 The validity function checks the validity of the object by ensuring:
 \itemize{
@@ -29,7 +29,7 @@ The validity function checks the validity of the object by ensuring:
 
 \item{\code{sncRNA_ID}}{A numeric value representing the sncRNA ID.}
 
-\item{\code{type_RNA}}{A character string representing the type of RNA.
+\item{\code{types_RNA}}{A character string representing the type of RNA.
 Default is "short" and it's not possible to change it.}
 }}
 
