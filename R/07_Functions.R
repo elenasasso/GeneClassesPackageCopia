@@ -94,8 +94,6 @@ createAccessors <- function(classes) {
   })
 }
 
-createAccessors(classList)
-
 
 
 #' LengthProduct Generic Function
