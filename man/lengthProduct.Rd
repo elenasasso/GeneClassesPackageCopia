@@ -5,14 +5,39 @@
 \title{LengthProduct Generic Function}
 \usage{
 lengthProduct(classes)
+
+lengthProduct(classes)
 }
 \arguments{
-\item{classes}{classes that contains a length attribute for the gene
-product.}
+\item{classes}{A list of class names for which the length product methods
+should be created.}
 }
 \value{
 The length of the gene product.
+
+This function does not return a value. It creates methods for the
+\code{lengthProduct} generic function.
 }
 \description{
 A generic function to calculate the length of the product of a gene.
+
+This function creates specific methods for the \code{lengthProduct} generic
+function for all classes.
+}
+\details{
+The function iterates over each class and its attributes (slots)
+to find an attribute that contains "length" in its name.
+It then defines a method for the \code{lengthProduct} generic function that
+retrieves the value of this attribute.
+}
+\section{Author}{
+
+Elena Sasso \email{elena.sasso@mail.polimi.it}
+}
+
+\examples{
+Brca1 <- CodingGene(id = 1, Hugo_symbol = "BRCA1", chrom = "17", 
+start = 41196312, end = 41277500)
+lengthProduct(Brca1)
+
 }
