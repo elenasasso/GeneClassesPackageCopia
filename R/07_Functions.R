@@ -59,42 +59,16 @@ setMethod(f = "ComputeGeneLength",
 #'
 #' @export
 #' @import methods
-createAccessors <- function(classes) {
-  all_attributes <- character()
-  
-  lapply(classes, function(class) {
-    attributes <- slotNames(class)
-    new_attributes <- setdiff(attributes, all_attributes)
-    all_attributes <<- union(all_attributes, new_attributes)
-    
-    lapply(new_attributes, function(attr) {
-      setGeneric(attr, function(x) standardGeneric(attr))
-      setGeneric(paste0(attr, "<-"), function(x, value)
-        standardGeneric(paste0(attr, "<-")))
-      
-      setMethod(attr, class, function(x) slot(x, attr))
-      
-      if (!attr %in% c("gene_product", "category", "type_RNA")) {
-        setMethod(paste0(attr, "<-"), class, function(x, value) {
-          slot(x, attr) <- value
-          
-          valid <- validObject(x, test = TRUE)
-          if (is.character(valid)) {
-            stop(paste("Invalid value for slot", attr, ": ", value, ". ", 
-                       validObject(x, test = FALSE)))
-          }
-          x
-        })
-      } else {
-        setMethod(paste0(attr, "<-"), class, function(x, value) {
-          stop(paste("Cannot modify the", attr, "slot"))
-        })
-      }
-    })
-  })
-}
+setGeneric("id", function(x) standardGeneric("id"))
+setGeneric("id<-", function(x, value) standardGeneric("id<-"))
 
-createAccessors(classList)
+#' @export
+#' @import methods
+setMethod("id", "Gene", function(x) x@id)
+setMethod("id<-", "Gene", function(x, value) {
+  x@id <- value
+  x
+})
 
 
 
