@@ -1,349 +1,286 @@
+#' @title Get id attribute
+#' @description Getter for id attribute of Gene class.
+#' @param x An object of class Gene.
+#' @return The value of the id attribute.
 #' @export
 setGeneric('id', function(x) standardGeneric('id'))
 #' @export
-setGeneric('id<-', function(x, value) standardGeneric('id<-<-'))
-#' @export
 setMethod('id', 'Gene', function(x) x@id)
+
+#' @title Set id attribute
+#' @description Setter for id attribute of Gene class.
+#' @param x An object of class Gene.
+#' @param value The value to set for the id attribute.
+#' @return The modified object.
+#' @export
+setGeneric('id<-', function(x, value) standardGeneric('id<-'))
 #' @export
 setMethod('id<-', 'Gene', function(x, value) {
   x@id <- value
   x
 })
+
+#' @title Get Hugo_symbol attribute
+#' @description Getter for Hugo_symbol attribute of Gene class.
+#' @param x An object of class Gene.
+#' @return The value of the Hugo_symbol attribute.
 #' @export
 setGeneric('Hugo_symbol', function(x) standardGeneric('Hugo_symbol'))
 #' @export
-setGeneric('Hugo_symbol<-', function(x, value) standardGeneric('Hugo_symbol<-<-'))
-#' @export
 setMethod('Hugo_symbol', 'Gene', function(x) x@Hugo_symbol)
+
+#' @title Set Hugo_symbol attribute
+#' @description Setter for Hugo_symbol attribute of Gene class.
+#' @param x An object of class Gene.
+#' @param value The value to set for the Hugo_symbol attribute.
+#' @return The modified object.
+#' @export
+setGeneric('Hugo_symbol<-', function(x, value) standardGeneric('Hugo_symbol<-'))
 #' @export
 setMethod('Hugo_symbol<-', 'Gene', function(x, value) {
   x@Hugo_symbol <- value
   x
 })
+
+#' @title Get description attribute
+#' @description Getter for description attribute of Gene class.
+#' @param x An object of class Gene.
+#' @return The value of the description attribute.
 #' @export
 setGeneric('description', function(x) standardGeneric('description'))
 #' @export
-setGeneric('description<-', function(x, value) standardGeneric('description<-<-'))
-#' @export
 setMethod('description', 'Gene', function(x) x@description)
+
+#' @title Set description attribute
+#' @description Setter for description attribute of Gene class.
+#' @param x An object of class Gene.
+#' @param value The value to set for the description attribute.
+#' @return The modified object.
+#' @export
+setGeneric('description<-', function(x, value) standardGeneric('description<-'))
 #' @export
 setMethod('description<-', 'Gene', function(x, value) {
   x@description <- value
   x
 })
+
+#' @title Get chrom attribute
+#' @description Getter for chrom attribute of Gene class.
+#' @param x An object of class Gene.
+#' @return The value of the chrom attribute.
 #' @export
 setGeneric('chrom', function(x) standardGeneric('chrom'))
 #' @export
-setGeneric('chrom<-', function(x, value) standardGeneric('chrom<-<-'))
-#' @export
 setMethod('chrom', 'Gene', function(x) x@chrom)
+
+#' @title Set chrom attribute
+#' @description Setter for chrom attribute of Gene class.
+#' @param x An object of class Gene.
+#' @param value The value to set for the chrom attribute.
+#' @return The modified object.
+#' @export
+setGeneric('chrom<-', function(x, value) standardGeneric('chrom<-'))
 #' @export
 setMethod('chrom<-', 'Gene', function(x, value) {
   x@chrom <- value
   x
 })
+
+#' @title Get start attribute
+#' @description Getter for start attribute of Gene class.
+#' @param x An object of class Gene.
+#' @return The value of the start attribute.
 #' @export
 setGeneric('start', function(x) standardGeneric('start'))
 #' @export
-setGeneric('start<-', function(x, value) standardGeneric('start<-<-'))
-#' @export
 setMethod('start', 'Gene', function(x) x@start)
+
+#' @title Set start attribute
+#' @description Setter for start attribute of Gene class.
+#' @param x An object of class Gene.
+#' @param value The value to set for the start attribute.
+#' @return The modified object.
+#' @export
+setGeneric('start<-', function(x, value) standardGeneric('start<-'))
 #' @export
 setMethod('start<-', 'Gene', function(x, value) {
   x@start <- value
   x
 })
+
+#' @title Get end attribute
+#' @description Getter for end attribute of Gene class.
+#' @param x An object of class Gene.
+#' @return The value of the end attribute.
 #' @export
 setGeneric('end', function(x) standardGeneric('end'))
 #' @export
-setGeneric('end<-', function(x, value) standardGeneric('end<-<-'))
-#' @export
 setMethod('end', 'Gene', function(x) x@end)
+
+#' @title Set end attribute
+#' @description Setter for end attribute of Gene class.
+#' @param x An object of class Gene.
+#' @param value The value to set for the end attribute.
+#' @return The modified object.
+#' @export
+setGeneric('end<-', function(x, value) standardGeneric('end<-'))
 #' @export
 setMethod('end<-', 'Gene', function(x, value) {
   x@end <- value
   x
 })
+
+#' @title Get strand attribute
+#' @description Getter for strand attribute of Gene class.
+#' @param x An object of class Gene.
+#' @return The value of the strand attribute.
 #' @export
 setGeneric('strand', function(x) standardGeneric('strand'))
 #' @export
-setGeneric('strand<-', function(x, value) standardGeneric('strand<-<-'))
-#' @export
 setMethod('strand', 'Gene', function(x) x@strand)
+
+#' @title Set strand attribute
+#' @description Setter for strand attribute of Gene class.
+#' @param x An object of class Gene.
+#' @param value The value to set for the strand attribute.
+#' @return The modified object.
+#' @export
+setGeneric('strand<-', function(x, value) standardGeneric('strand<-'))
 #' @export
 setMethod('strand<-', 'Gene', function(x, value) {
   x@strand <- value
   x
 })
+
+#' @title Get TSS attribute
+#' @description Getter for TSS attribute of Gene class.
+#' @param x An object of class Gene.
+#' @return The value of the TSS attribute.
 #' @export
 setGeneric('TSS', function(x) standardGeneric('TSS'))
 #' @export
-setGeneric('TSS<-', function(x, value) standardGeneric('TSS<-<-'))
-#' @export
 setMethod('TSS', 'Gene', function(x) x@TSS)
+
+#' @title Set TSS attribute
+#' @description Setter for TSS attribute of Gene class.
+#' @param x An object of class Gene.
+#' @param value The value to set for the TSS attribute.
+#' @return The modified object.
+#' @export
+setGeneric('TSS<-', function(x, value) standardGeneric('TSS<-'))
 #' @export
 setMethod('TSS<-', 'Gene', function(x, value) {
   x@TSS <- value
   x
 })
+
+#' @title Get TTS attribute
+#' @description Getter for TTS attribute of Gene class.
+#' @param x An object of class Gene.
+#' @return The value of the TTS attribute.
 #' @export
 setGeneric('TTS', function(x) standardGeneric('TTS'))
 #' @export
-setGeneric('TTS<-', function(x, value) standardGeneric('TTS<-<-'))
-#' @export
 setMethod('TTS', 'Gene', function(x) x@TTS)
+
+#' @title Set TTS attribute
+#' @description Setter for TTS attribute of Gene class.
+#' @param x An object of class Gene.
+#' @param value The value to set for the TTS attribute.
+#' @return The modified object.
+#' @export
+setGeneric('TTS<-', function(x, value) standardGeneric('TTS<-'))
 #' @export
 setMethod('TTS<-', 'Gene', function(x, value) {
   x@TTS <- value
   x
 })
+
+#' @title Get number_exon attribute
+#' @description Getter for number_exon attribute of Gene class.
+#' @param x An object of class Gene.
+#' @return The value of the number_exon attribute.
 #' @export
 setGeneric('number_exon', function(x) standardGeneric('number_exon'))
 #' @export
-setGeneric('number_exon<-', function(x, value) standardGeneric('number_exon<-<-'))
-#' @export
 setMethod('number_exon', 'Gene', function(x) x@number_exon)
+
+#' @title Set number_exon attribute
+#' @description Setter for number_exon attribute of Gene class.
+#' @param x An object of class Gene.
+#' @param value The value to set for the number_exon attribute.
+#' @return The modified object.
+#' @export
+setGeneric('number_exon<-', function(x, value) standardGeneric('number_exon<-'))
 #' @export
 setMethod('number_exon<-', 'Gene', function(x, value) {
   x@number_exon <- value
   x
 })
+
+#' @title Get location attribute
+#' @description Getter for location attribute of Gene class.
+#' @param x An object of class Gene.
+#' @return The value of the location attribute.
 #' @export
 setGeneric('location', function(x) standardGeneric('location'))
 #' @export
-setGeneric('location<-', function(x, value) standardGeneric('location<-<-'))
-#' @export
 setMethod('location', 'Gene', function(x) x@location)
+
+#' @title Set location attribute
+#' @description Setter for location attribute of Gene class.
+#' @param x An object of class Gene.
+#' @param value The value to set for the location attribute.
+#' @return The modified object.
+#' @export
+setGeneric('location<-', function(x, value) standardGeneric('location<-'))
 #' @export
 setMethod('location<-', 'Gene', function(x, value) {
   x@location <- value
   x
 })
+
+#' @title Get category attribute
+#' @description Getter for category attribute of Gene class.
+#' @param x An object of class Gene.
+#' @return The value of the category attribute.
 #' @export
 setGeneric('category', function(x) standardGeneric('category'))
 #' @export
-setGeneric('category<-', function(x, value) standardGeneric('category<-<-'))
-#' @export
 setMethod('category', 'Gene', function(x) x@category)
+
+#' @title Set category attribute
+#' @description Setter for category attribute of Gene class.
+#' @param x An object of class Gene.
+#' @param value The value to set for the category attribute.
+#' @return The modified object.
+#' @export
+setGeneric('category<-', function(x, value) standardGeneric('category<-'))
 #' @export
 setMethod('category<-', 'Gene', function(x, value) {
-  stop(paste('Cannot modify the', attr, 'slot'))
+  x@category <- value
+  x
 })
+
+#' @title Get gene_product attribute
+#' @description Getter for gene_product attribute of Gene class.
+#' @param x An object of class Gene.
+#' @return The value of the gene_product attribute.
 #' @export
 setGeneric('gene_product', function(x) standardGeneric('gene_product'))
 #' @export
-setGeneric('gene_product<-', function(x, value) standardGeneric('gene_product<-<-'))
-#' @export
 setMethod('gene_product', 'Gene', function(x) x@gene_product)
+
+#' @title Set gene_product attribute
+#' @description Setter for gene_product attribute of Gene class.
+#' @param x An object of class Gene.
+#' @param value The value to set for the gene_product attribute.
+#' @return The modified object.
+#' @export
+setGeneric('gene_product<-', function(x, value) standardGeneric('gene_product<-'))
 #' @export
 setMethod('gene_product<-', 'Gene', function(x, value) {
-  stop(paste('Cannot modify the', attr, 'slot'))
-})
-#' @export
-setGeneric('specific_aa', function(x) standardGeneric('specific_aa'))
-#' @export
-setGeneric('specific_aa<-', function(x, value) standardGeneric('specific_aa<-<-'))
-#' @export
-setMethod('specific_aa', 'tRNA_Gene', function(x) x@specific_aa)
-#' @export
-setMethod('specific_aa<-', 'tRNA_Gene', function(x, value) {
-  x@specific_aa <- value
+  x@gene_product <- value
   x
 })
-#' @export
-setGeneric('tRNA_ID', function(x) standardGeneric('tRNA_ID'))
-#' @export
-setGeneric('tRNA_ID<-', function(x, value) standardGeneric('tRNA_ID<-<-'))
-#' @export
-setMethod('tRNA_ID', 'tRNA_Gene', function(x) x@tRNA_ID)
-#' @export
-setMethod('tRNA_ID<-', 'tRNA_Gene', function(x, value) {
-  x@tRNA_ID <- value
-  x
-})
-#' @export
-setGeneric('length_tRNA', function(x) standardGeneric('length_tRNA'))
-#' @export
-setGeneric('length_tRNA<-', function(x, value) standardGeneric('length_tRNA<-<-'))
-#' @export
-setMethod('length_tRNA', 'tRNA_Gene', function(x) x@length_tRNA)
-#' @export
-setMethod('length_tRNA<-', 'tRNA_Gene', function(x, value) {
-  x@length_tRNA <- value
-  x
-})
-#' @export
-setGeneric('CDS_start', function(x) standardGeneric('CDS_start'))
-#' @export
-setGeneric('CDS_start<-', function(x, value) standardGeneric('CDS_start<-<-'))
-#' @export
-setMethod('CDS_start', 'CodingGene', function(x) x@CDS_start)
-#' @export
-setMethod('CDS_start<-', 'CodingGene', function(x, value) {
-  x@CDS_start <- value
-  x
-})
-#' @export
-setGeneric('CDS_end', function(x) standardGeneric('CDS_end'))
-#' @export
-setGeneric('CDS_end<-', function(x, value) standardGeneric('CDS_end<-<-'))
-#' @export
-setMethod('CDS_end', 'CodingGene', function(x) x@CDS_end)
-#' @export
-setMethod('CDS_end<-', 'CodingGene', function(x, value) {
-  x@CDS_end <- value
-  x
-})
-#' @export
-setGeneric('protein_ID', function(x) standardGeneric('protein_ID'))
-#' @export
-setGeneric('protein_ID<-', function(x, value) standardGeneric('protein_ID<-<-'))
-#' @export
-setMethod('protein_ID', 'CodingGene', function(x) x@protein_ID)
-#' @export
-setMethod('protein_ID<-', 'CodingGene', function(x, value) {
-  x@protein_ID <- value
-  x
-})
-#' @export
-setGeneric('length_protein', function(x) standardGeneric('length_protein'))
-#' @export
-setGeneric('length_protein<-', function(x, value) standardGeneric('length_protein<-<-'))
-#' @export
-setMethod('length_protein', 'CodingGene', function(x) x@length_protein)
-#' @export
-setMethod('length_protein<-', 'CodingGene', function(x, value) {
-  x@length_protein <- value
-  x
-})
-#' @export
-setGeneric('specific_RNA', function(x) standardGeneric('specific_RNA'))
-#' @export
-setGeneric('specific_RNA<-', function(x, value) standardGeneric('specific_RNA<-<-'))
-#' @export
-setMethod('specific_RNA', 'rRNA_Gene', function(x) x@specific_RNA)
-#' @export
-setMethod('specific_RNA<-', 'rRNA_Gene', function(x, value) {
-  x@specific_RNA <- value
-  x
-})
-#' @export
-setGeneric('rRNA_ID', function(x) standardGeneric('rRNA_ID'))
-#' @export
-setGeneric('rRNA_ID<-', function(x, value) standardGeneric('rRNA_ID<-<-'))
-#' @export
-setMethod('rRNA_ID', 'rRNA_Gene', function(x) x@rRNA_ID)
-#' @export
-setMethod('rRNA_ID<-', 'rRNA_Gene', function(x, value) {
-  x@rRNA_ID <- value
-  x
-})
-#' @export
-setGeneric('length_rRNA', function(x) standardGeneric('length_rRNA'))
-#' @export
-setGeneric('length_rRNA<-', function(x, value) standardGeneric('length_rRNA<-<-'))
-#' @export
-setMethod('length_rRNA', 'rRNA_Gene', function(x) x@length_rRNA)
-#' @export
-setMethod('length_rRNA<-', 'rRNA_Gene', function(x, value) {
-  x@length_rRNA <- value
-  x
-})
-#' @export
-setGeneric('length_lncRNA', function(x) standardGeneric('length_lncRNA'))
-#' @export
-setGeneric('length_lncRNA<-', function(x, value) standardGeneric('length_lncRNA<-<-'))
-#' @export
-setMethod('length_lncRNA', 'lncRNA_Gene', function(x) x@length_lncRNA)
-#' @export
-setMethod('length_lncRNA<-', 'lncRNA_Gene', function(x, value) {
-  x@length_lncRNA <- value
-  x
-})
-#' @export
-setGeneric('lncRNA_ID', function(x) standardGeneric('lncRNA_ID'))
-#' @export
-setGeneric('lncRNA_ID<-', function(x, value) standardGeneric('lncRNA_ID<-<-'))
-#' @export
-setMethod('lncRNA_ID', 'lncRNA_Gene', function(x) x@lncRNA_ID)
-#' @export
-setMethod('lncRNA_ID<-', 'lncRNA_Gene', function(x, value) {
-  x@lncRNA_ID <- value
-  x
-})
-#' @export
-setGeneric('type_RNA', function(x) standardGeneric('type_RNA'))
-#' @export
-setGeneric('type_RNA<-', function(x, value) standardGeneric('type_RNA<-<-'))
-#' @export
-setMethod('type_RNA', 'lncRNA_Gene', function(x) x@type_RNA)
-#' @export
-setMethod('type_RNA<-', 'lncRNA_Gene', function(x, value) {
-  stop(paste('Cannot modify the', attr, 'slot'))
-})
-#' @export
-setGeneric('length_sncRNA', function(x) standardGeneric('length_sncRNA'))
-#' @export
-setGeneric('length_sncRNA<-', function(x, value) standardGeneric('length_sncRNA<-<-'))
-#' @export
-setMethod('length_sncRNA', 'sncRNA_Gene', function(x) x@length_sncRNA)
-#' @export
-setMethod('length_sncRNA<-', 'sncRNA_Gene', function(x, value) {
-  x@length_sncRNA <- value
-  x
-})
-#' @export
-setGeneric('sncRNA_ID', function(x) standardGeneric('sncRNA_ID'))
-#' @export
-setGeneric('sncRNA_ID<-', function(x, value) standardGeneric('sncRNA_ID<-<-'))
-#' @export
-setMethod('sncRNA_ID', 'sncRNA_Gene', function(x) x@sncRNA_ID)
-#' @export
-setMethod('sncRNA_ID<-', 'sncRNA_Gene', function(x, value) {
-  x@sncRNA_ID <- value
-  x
-})
-#' @export
-setGeneric('miRNA_ID', function(x) standardGeneric('miRNA_ID'))
-#' @export
-setGeneric('miRNA_ID<-', function(x, value) standardGeneric('miRNA_ID<-<-'))
-#' @export
-setMethod('miRNA_ID', 'miRNA_Gene', function(x) x@miRNA_ID)
-#' @export
-setMethod('miRNA_ID<-', 'miRNA_Gene', function(x, value) {
-  x@miRNA_ID <- value
-  x
-})
-#' @export
-setGeneric('RNA_target', function(x) standardGeneric('RNA_target'))
-#' @export
-setGeneric('RNA_target<-', function(x, value) standardGeneric('RNA_target<-<-'))
-#' @export
-setMethod('RNA_target', 'miRNA_Gene', function(x) x@RNA_target)
-#' @export
-setMethod('RNA_target<-', 'miRNA_Gene', function(x, value) {
-  x@RNA_target <- value
-  x
-})
-#' @export
-setGeneric('snRNA_ID', function(x) standardGeneric('snRNA_ID'))
-#' @export
-setGeneric('snRNA_ID<-', function(x, value) standardGeneric('snRNA_ID<-<-'))
-#' @export
-setMethod('snRNA_ID', 'snRNA_Gene', function(x) x@snRNA_ID)
-#' @export
-setMethod('snRNA_ID<-', 'snRNA_Gene', function(x, value) {
-  x@snRNA_ID <- value
-  x
-})
-#' @export
-setGeneric('snoRNA_ID', function(x) standardGeneric('snoRNA_ID'))
-#' @export
-setGeneric('snoRNA_ID<-', function(x, value) standardGeneric('snoRNA_ID<-<-'))
-#' @export
-setMethod('snoRNA_ID', 'snoRNA_Gene', function(x) x@snoRNA_ID)
-#' @export
-setMethod('snoRNA_ID<-', 'snoRNA_Gene', function(x, value) {
-  x@snoRNA_ID <- value
-  x
-})
+

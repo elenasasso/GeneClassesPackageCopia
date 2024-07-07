@@ -1,75 +1,33 @@
-#' Create getter and setter
-#'
-#' This function creates getter and setter methods for all attributes (slots) 
-#' of the classes.
-#'
-#' @param classes A list of class names for which the accessors should be 
-#' created.
-#'
-#' @details The function iterates over each class and its attributes (slots) 
-#' to create getter and setter for each slot of each class. 
-#' For attributes `gene_product`, `category` and `type_RNA` the setter method 
-#' will throw an error if modification is attempted. 
-#' The validity of the object is also checked.
-#'
-#' @return This function does not return a value. It creates getter and setter
-#' methods in the environment.
-#'
-#' @section Author:
-#' Elena Sasso \email{elena.sasso@mail.polimi.it}
-#'
-#' @export
-#' @import methods
-createAccessors <- function(classes) {
-  all_attributes <- character()
+generateGetterSetterCode <- function(class_name, file_path) {
+  fileConn <- file(file_path, open = "wt")
   
-  lapply(classes, function(class) {
-    attributes <- slotNames(getClass(class))
-    new_attributes <- setdiff(attributes, all_attributes)
-    all_attributes <<- union(all_attributes, new_attributes)
+    attributes <- slotNames(class_name)
     
-    lapply(new_attributes, function(attr) {
-      # Generic getter
-      setGeneric(attr, function(x) standardGeneric(attr))
-      # Export the getter
-      cat(sprintf("#' @export\nsetGeneric('%s', function(x) standardGeneric('%s'))\n", attr, attr), file = "R/getters_setters.R", append = TRUE)
+    for (attr in attributes) {
+      # Getter
+      cat(sprintf(
+        "#' @title Get %s attribute\n#' @description Getter for %s attribute of %s class.\n#' @param x An object of class %s.\n#' @return The value of the %s attribute.\n#' @export\nsetGeneric('%s', function(x) standardGeneric('%s'))\n",
+        attr, attr, class_name, class_name, attr, attr, attr
+      ), file = fileConn)
+      cat(sprintf(
+        "#' @export\nsetMethod('%s', '%s', function(x) x@%s)\n\n",
+        attr, class_name, attr
+      ), file = fileConn)
       
-      # Generic setter
-      setGeneric(paste0(attr, "<-"), function(x, value) standardGeneric(paste0(attr, "<-")))
-      # Export the setter
-      cat(sprintf("#' @export\nsetGeneric('%s<-', function(x, value) standardGeneric('%s<-'))\n", attr, paste0(attr, "<-")), file = "R/getters_setters.R", append = TRUE)
-      
-      # Getter method
-      setMethod(attr, class, function(x) slot(x, attr))
-      # Export the getter method
-      cat(sprintf("#' @export\nsetMethod('%s', '%s', function(x) x@%s)\n", attr, class, attr), file = "R/getters_setters.R", append = TRUE)
-      
-      if (!attr %in% c("gene_product", "category", "type_RNA")) {
-        # Setter method
-        setMethod(paste0(attr, "<-"), class, function(x, value) {
-          slot(x, attr) <- value
-          valid <- validObject(x, test = TRUE)
-          if (is.character(valid)) {
-            stop(paste("Invalid value for slot", attr, ": ", value, ". ", 
-                       validObject(x, test = FALSE)))
-          }
-          x
-        })
-        # Export the setter method
-        cat(sprintf("#' @export\nsetMethod('%s<-', '%s', function(x, value) {\n  x@%s <- value\n  x\n})\n", attr, class, attr), file = "R/getters_setters.R", append = TRUE)
-      } else {
-        # Setter method that throws an error
-        setMethod(paste0(attr, "<-"), class, function(x, value) {
-          stop(paste("Cannot modify the", attr, "slot"))
-        })
-        # Export the setter method that throws an error
-        cat(sprintf("#' @export\nsetMethod('%s<-', '%s', function(x, value) {\n  stop(paste('Cannot modify the', attr, 'slot'))\n})\n", attr, class), file = "R/getters_setters.R", append = TRUE)
-      }
-    })
-  })
+      # Setter
+      cat(sprintf(
+        "#' @title Set %s attribute\n#' @description Setter for %s attribute of %s class.\n#' @param x An object of class %s.\n#' @param value The value to set for the %s attribute.\n#' @return The modified object.\n#' @export\nsetGeneric('%s<-', function(x, value) standardGeneric('%s<-'))\n",
+        attr, attr, class_name, class_name, attr, attr, attr
+      ), file = fileConn)
+      cat(sprintf(
+        "#' @export\nsetMethod('%s<-', '%s', function(x, value) {\n  x@%s <- value\n  x\n})\n\n",
+        attr, class_name, attr
+      ), file = fileConn)
+    }
+  
+  close(fileConn)
 }
 
+# Esegui la funzione con la tua lista di classi e il percorso del file di output
+generateGetterSetterCode("Gene", "R/getters_setters.R")
 
-
-# Genera i getter e setter per le classi concrete
-createAccessors(classList)
