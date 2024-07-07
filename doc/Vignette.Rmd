@@ -17,7 +17,6 @@ knitr::opts_chunk$set(
 Follow this command to install the package:
 
 ```{r eval=FALSE}
-
 if (!requireNamespace("devtools", quietly = TRUE)) {
   install.packages("devtools")
 }
@@ -151,13 +150,10 @@ SncGene <- sncRNA_Gene(id = 54865, category = "Regolative", length_sncRNA = 76)
 
 #### miRNA
 
-**NB**:
-
--   the target of the miRNA must be a list
--   for the miRNA the attribute for the length of the product is the general attribute `length_sncRNA` (this is also the same also for `snoRNA_Gene` and `snRNA_Gene`)
+**NB**: For the miRNA the attribute for the length of the product is the general attribute `length_sncRNA` (this is also the same also for `snoRNA_Gene` and `snRNA_Gene`)
 
 ```{r}
-miRNA1 <- miRNA_Gene(id= 508218, length_sncRNA = 48, RNA_target = list(brca1, lncfoxp3))
+miRNA1 <- miRNA_Gene(id= 508218, length_sncRNA = 48, RNA_target = "targetGene1")
 ```
 
 #### snoRNA
@@ -210,6 +206,18 @@ lengthProduct(rRNA4)
 It's easily possible to access attributes of object or modify them:
 ```{r}
 id(brca1)
+```
+
+```{r}
+start(tRNA1)
+```
+
+```{r}
+RNA_target(miRNA1)
+```
+
+```{r}
+RNA_target(miRNA1) <- "targetGene2"
 ```
 
 ```{r}

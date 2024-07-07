@@ -14,7 +14,7 @@ A class to represent microRNA (miRNA) genes.
 \details{
 Additional details:
 The prototype are:
-miRNA_ID = NA_real_, RNA_target = list(), gene_product = "miRNA".
+miRNA_ID = NA_real_, RNA_target = NA_character_, gene_product = "miRNA".
 
 The validity function ensures the gene product is 'miRNA'.
 }
@@ -23,7 +23,7 @@ The validity function ensures the gene product is 'miRNA'.
 \describe{
 \item{\code{miRNA_ID}}{A numeric value representing the miRNA ID.}
 
-\item{\code{RNA_target}}{A list of miRNA targets.}
+\item{\code{RNA_target}}{A character of the miRNA target.}
 
 \item{\code{gene_product}}{A character string representing the product of the gene.
 Default is "miRNA" and it's not possibile to change it.}
@@ -36,8 +36,7 @@ Elena Sasso \email{elena.sasso@mail.polimi.it}
 
 \examples{
 # Create a miRNA_Gene object
-miRNA_gene <- miRNA_Gene(id = 8, miRNA_ID = 1, RNA_target = list("target1",
-"target2"))
+miRNA_gene <- miRNA_Gene(id = 8, miRNA_ID = 1, RNA_target = "target1")
 
 }
 \seealso{

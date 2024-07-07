@@ -5,7 +5,6 @@ knitr::opts_chunk$set(
 )
 
 ## ----eval=FALSE---------------------------------------------------------------
-#  
 #  if (!requireNamespace("devtools", quietly = TRUE)) {
 #    install.packages("devtools")
 #  }
@@ -67,7 +66,7 @@ lncfoxp3 <- lncRNA_Gene(id = 62728, Hugo_symbol = "lncFOXP3", length_lncRNA = 15
 SncGene <- sncRNA_Gene(id = 54865, category = "Regolative", length_sncRNA = 76)
 
 ## -----------------------------------------------------------------------------
-miRNA1 <- miRNA_Gene(id= 508218, length_sncRNA = 48, RNA_target = list(brca1, lncfoxp3))
+miRNA1 <- miRNA_Gene(id= 508218, length_sncRNA = 48, RNA_target = "targetGene1")
 
 ## -----------------------------------------------------------------------------
 SNORD116 <- snoRNA_Gene(id = 8265, description = 'small nucleolar RNA that plays a crucial role in the development of Prader-Willi Syndrome')
@@ -95,6 +94,15 @@ lengthProduct(rRNA4)
 
 ## -----------------------------------------------------------------------------
 id(brca1)
+
+## -----------------------------------------------------------------------------
+start(tRNA1)
+
+## -----------------------------------------------------------------------------
+RNA_target(miRNA1)
+
+## -----------------------------------------------------------------------------
+RNA_target(miRNA1) <- "targetGene2"
 
 ## -----------------------------------------------------------------------------
 RNA_target(miRNA1)

@@ -177,22 +177,21 @@ sncRNA_Gene <- setClass("sncRNA_Gene", slots=list(length_sncRNA = "numeric",
 #' A class to represent microRNA (miRNA) genes.
 #'
 #' @slot miRNA_ID A numeric value representing the miRNA ID.
-#' @slot RNA_target A list of miRNA targets.
+#' @slot RNA_target A character of the miRNA target.
 #' @slot gene_product A character string representing the product of the gene. 
 #' Default is "miRNA" and it's not possibile to change it.
 #'
 #' @details
 #' Additional details:
 #' The prototype are:
-#' miRNA_ID = NA_real_, RNA_target = list(), gene_product = "miRNA".
+#' miRNA_ID = NA_real_, RNA_target = NA_character_, gene_product = "miRNA".
 #'
 #' The validity function ensures the gene product is 'miRNA'.
 #'
 #' @return A \code{miRNA_Gene} object.
 #' @examples
 #' # Create a miRNA_Gene object
-#' miRNA_gene <- miRNA_Gene(id = 8, miRNA_ID = 1, RNA_target = list("target1",
-#' "target2"))
+#' miRNA_gene <- miRNA_Gene(id = 8, miRNA_ID = 1, RNA_target = "target1")
 #'
 #' @section Author:
 #' Elena Sasso \email{elena.sasso@mail.polimi.it}
@@ -201,9 +200,9 @@ sncRNA_Gene <- setClass("sncRNA_Gene", slots=list(length_sncRNA = "numeric",
 #'
 #' @export
 miRNA_Gene <- setClass("miRNA_Gene", slots=list(miRNA_ID = "numeric", 
-                                                RNA_target = "list"), 
+                                                RNA_target = "character"), 
                        prototype = list(miRNA_ID = NA_real_, 
-                                        RNA_target = list(),
+                                        RNA_target = NA_character_,
                                         gene_product = "miRNA"),
                        
                        validity = function(object) {
