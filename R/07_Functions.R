@@ -37,65 +37,6 @@ setMethod(f = "ComputeGeneLength",
 
 
 
-#' Create getter and setter
-#'
-#' This function creates getter and setter methods for all attributes (slots) 
-#' of the classes.
-#'
-#' @param classes A list of class names for which the accessors should be 
-#' created.
-#'
-#' @details The function iterates over each class and its attributes (slots) 
-#' to create getter and setter for each slot of each class. 
-#' For attributes `gene_product`, `category` and `type_RNA` the setter method 
-#' will throw an error if modification is attempted. 
-#' The validity of the object is also checked.
-#'
-#' @return This function does not return a value. It creates getter and setter
-#' methods in the environment.
-#'
-#' @section Author:
-#' Elena Sasso \email{elena.sasso@mail.polimi.it}
-#'
-#' @export
-#' @import methods
-createAccessors <- function(classes) {
-  all_attributes <- character()
-  
-  lapply(classes, function(class) {
-    attributes <- slotNames(class)
-    new_attributes <- setdiff(attributes, all_attributes)
-    all_attributes <<- union(all_attributes, new_attributes)
-    
-    lapply(new_attributes, function(attr) {
-      setGeneric(attr, function(x) standardGeneric(attr))
-      setGeneric(paste0(attr, "<-"), function(x, value)
-        standardGeneric(paste0(attr, "<-")))
-      
-      setMethod(attr, class, function(x) slot(x, attr))
-      
-      if (!attr %in% c("gene_product", "category", "type_RNA")) {
-        setMethod(paste0(attr, "<-"), class, function(x, value) {
-          slot(x, attr) <- value
-          
-          valid <- validObject(x, test = TRUE)
-          if (is.character(valid)) {
-            stop(paste("Invalid value for slot", attr, ": ", value, ". ", 
-                       validObject(x, test = FALSE)))
-          }
-          x
-        })
-      } else {
-        setMethod(paste0(attr, "<-"), class, function(x, value) {
-          stop(paste("Cannot modify the", attr, "slot"))
-        })
-      }
-    })
-  })
-}
-
-
-
 #' LengthProduct Generic Function
 #'
 #' A generic function to calculate the length of the product of a gene.
