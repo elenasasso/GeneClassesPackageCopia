@@ -2,9 +2,7 @@
 % Please edit documentation in R/08_getter_setter.R
 \name{generateGetterSetterCode_for_small}
 \alias{generateGetterSetterCode_for_small}
-\title{Generate Getter and Setter Code for small_RNAs genes classes
-This function generates getter and setter methods for all attributes of the
-small_RNAs genes classes, writing the code to a specified file.}
+\title{Generate Getter and Setter Code for small_RNAs genes classes}
 \usage{
 generateGetterSetterCode_for_small(class_name, file_path)
 }
@@ -20,10 +18,10 @@ code directly to the specified file.
 }
 \description{
 Generate Getter and Setter Code for small_RNAs genes classes
-This function generates getter and setter methods for all attributes of the
-small_RNAs genes classes, writing the code to a specified file.
 }
 \details{
 This function generates Roxygen2 documentation for each getter
 and setter method, making them ready for inclusion in an R package.
+It writes the documentations and the methods in the appropriate files,
+which were empty at the beginning.
 }

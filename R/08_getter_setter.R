@@ -1,13 +1,11 @@
 #' Generate Getter and Setter Code for Gene class
-#' This function generates getter and setter methods for all attributes of the 
-#' gene class, writing the code to a specified file. It includes additional 
-#' restrictions for certain attributes where the setter method is not allowed 
-#' to modify the attribute.
 #' @param class_name The name of the S4 class for which the getter and setter 
 #' methods are to be generated.
 #' @param file_path The file path where the generated code will be written.
 #' @details This function generates Roxygen2 documentation for each getter 
-#' and setter method, making them ready for inclusion in an R package. 
+#' and setter method, making them ready for inclusion in an R package.
+#' It writes the documentations and the methods in the appropriate files, 
+#' which were empty at the beginning. 
 #' For attributes named "gene_product" and "category", 
 #' the setter methods are generated with a restriction that prevents 
 #' modification of these attributes, providing an error message instead.
@@ -83,15 +81,13 @@ generateGetterSetterCode_for_Gene("Gene", "R/getters_setters_Gene.R")
 
 
 #' Generate Getter and Setter Code for derived classes
-#' This function generates getter and setter methods for all attributes of the 
-#' derived class, writing the code to a specified file. It includes additional 
-#' restrictions for certain attributes where the setter method is not allowed 
-#' to modify the attribute.
 #' @param class_name The name of the S4 class for which the getter and setter 
 #' methods are to be generated.
 #' @param file_path The file path where the generated code will be written.
 #' @details This function generates Roxygen2 documentation for each getter 
 #' and setter method, making them ready for inclusion in an R package. 
+#' It writes the documentations and the methods in the appropriate files, 
+#' which were empty at the beginning.
 #' For attributes named "type_RNA" and "types_RNA", 
 #' the setter methods are generated with a restriction that prevents 
 #' modification of these attributes, providing an error message instead.
@@ -175,13 +171,13 @@ generateGetterSetterCode_for_others("sncRNA_Gene",
 
 
 #' Generate Getter and Setter Code for small_RNAs genes classes
-#' This function generates getter and setter methods for all attributes of the 
-#' small_RNAs genes classes, writing the code to a specified file. 
 #' @param class_name The name of the S4 class for which the getter and setter 
 #' methods are to be generated.
 #' @param file_path The file path where the generated code will be written.
 #' @details This function generates Roxygen2 documentation for each getter 
-#' and setter method, making them ready for inclusion in an R package. 
+#' and setter method, making them ready for inclusion in an R package.
+#' It writes the documentations and the methods in the appropriate files, 
+#' which were empty at the beginning. 
 #' @return This function does not return a value. It writes the generated 
 #' code directly to the specified file.
 generateGetterSetterCode_for_small <- function(class_name, file_path) {

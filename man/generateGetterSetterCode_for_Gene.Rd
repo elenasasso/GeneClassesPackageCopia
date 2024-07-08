@@ -2,11 +2,7 @@
 % Please edit documentation in R/08_getter_setter.R
 \name{generateGetterSetterCode_for_Gene}
 \alias{generateGetterSetterCode_for_Gene}
-\title{Generate Getter and Setter Code for Gene class
-This function generates getter and setter methods for all attributes of the
-gene class, writing the code to a specified file. It includes additional
-restrictions for certain attributes where the setter method is not allowed
-to modify the attribute.}
+\title{Generate Getter and Setter Code for Gene class}
 \usage{
 generateGetterSetterCode_for_Gene(class_name, file_path)
 }
@@ -22,14 +18,12 @@ code directly to the specified file.
 }
 \description{
 Generate Getter and Setter Code for Gene class
-This function generates getter and setter methods for all attributes of the
-gene class, writing the code to a specified file. It includes additional
-restrictions for certain attributes where the setter method is not allowed
-to modify the attribute.
 }
 \details{
 This function generates Roxygen2 documentation for each getter
 and setter method, making them ready for inclusion in an R package.
+It writes the documentations and the methods in the appropriate files,
+which were empty at the beginning.
 For attributes named "gene_product" and "category",
 the setter methods are generated with a restriction that prevents
 modification of these attributes, providing an error message instead.
