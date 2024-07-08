@@ -126,7 +126,7 @@ RNA_target(miRNA1)
 #  HouseKeepingGene <- Housekeeping_RNA_Gene(id = 6789, category = 'Regolative')
 
 ## ----eval=FALSE---------------------------------------------------------------
-#  smallNuclearRna <- snRNA_Gene(id = 78641, type_RNA = 'long')
+#  smallNuclearRna <- snRNA_Gene(id = 78641, category = 'Housekeeping')
 
 ## ----sessionInfo--------------------------------------------------------------
 sessionInfo()

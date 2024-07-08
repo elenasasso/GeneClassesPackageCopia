@@ -513,13 +513,12 @@ start and CDS end (just for <code>CodingeGene</code>):</li>
 </ul>
 <div class="sourceCode" id="cb37"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1" tabindex="-1"></a>pik3ca <span class="ot">&lt;-</span> <span class="fu">CodingGene</span>(<span class="at">id =</span> <span class="dv">2876</span>, <span class="at">chrom =</span> <span class="st">&quot;chr3&quot;</span>, <span class="at">TSS =</span> <span class="dv">980</span>, <span class="at">CDS_start =</span> <span class="dv">900</span>, <span class="at">strand =</span> <span class="st">&#39;+&#39;</span> , <span class="at">number_exon =</span> <span class="dv">21</span>)</span></code></pre></div>
 <ul>
-<li>Don’t try to change the attributes <code>category</code>,
-<code>gene_product</code> and <code>type_RNA</code>(only for
-<code>ncRNA_Gene</code>):</li>
+<li>Don’t try to change the attributes <code>category</code> and
+<code>gene_product</code>:</li>
 </ul>
 <div class="sourceCode" id="cb38"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1" tabindex="-1"></a>snoRNA <span class="ot">&lt;-</span> <span class="fu">snoRNA_Gene</span>(<span class="at">id =</span> <span class="dv">52719</span>, <span class="at">gene_product =</span> <span class="st">&quot;tRNA&quot;</span>)</span></code></pre></div>
 <div class="sourceCode" id="cb39"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1" tabindex="-1"></a>HouseKeepingGene <span class="ot">&lt;-</span> <span class="fu">Housekeeping_RNA_Gene</span>(<span class="at">id =</span> <span class="dv">6789</span>, <span class="at">category =</span> <span class="st">&#39;Regolative&#39;</span>)</span></code></pre></div>
-<div class="sourceCode" id="cb40"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1" tabindex="-1"></a>smallNuclearRna <span class="ot">&lt;-</span> <span class="fu">snRNA_Gene</span>(<span class="at">id =</span> <span class="dv">78641</span>, <span class="at">type_RNA =</span> <span class="st">&#39;long&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb40"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1" tabindex="-1"></a>smallNuclearRna <span class="ot">&lt;-</span> <span class="fu">snRNA_Gene</span>(<span class="at">id =</span> <span class="dv">78641</span>, <span class="at">category =</span> <span class="st">&#39;Housekeeping&#39;</span>)</span></code></pre></div>
 <div class="sourceCode" id="cb41"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb41-1"><a href="#cb41-1" tabindex="-1"></a><span class="fu">sessionInfo</span>()</span>
 <span id="cb41-2"><a href="#cb41-2" tabindex="-1"></a><span class="co">#&gt; R version 4.3.1 (2023-06-16 ucrt)</span></span>
 <span id="cb41-3"><a href="#cb41-3" tabindex="-1"></a><span class="co">#&gt; Platform: x86_64-w64-mingw32/x64 (64-bit)</span></span>

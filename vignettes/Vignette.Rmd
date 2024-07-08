@@ -253,7 +253,7 @@ smallnoncodingGene <- sncRNA_Gene(id = 9875, strand = '+', TSS = 1023, TTS = 763
 pik3ca <- CodingGene(id = 2876, chrom = "chr3", TSS = 980, CDS_start = 900, strand = '+' , number_exon = 21)
 ```
 
--   Don't try to change the attributes `category`, `gene_product` and `type_RNA`(only for `ncRNA_Gene`):
+-   Don't try to change the attributes `category` and `gene_product`:
 
 ```{r eval=FALSE}
 snoRNA <- snoRNA_Gene(id = 52719, gene_product = "tRNA")
@@ -264,7 +264,7 @@ HouseKeepingGene <- Housekeeping_RNA_Gene(id = 6789, category = 'Regolative')
 ```
 
 ```{r eval=FALSE}
-smallNuclearRna <- snRNA_Gene(id = 78641, type_RNA = 'long')
+smallNuclearRna <- snRNA_Gene(id = 78641, category = 'Housekeeping')
 ```
 
 ```{r sessionInfo}
